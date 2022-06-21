@@ -13,7 +13,7 @@ public class RecipeCreator
 {
     private Mod _mod;
     private List<string> _recipeText = new();
-    public const bool FORMATRECIPES = true;
+    public const bool FORMATRECIPES = false;
     private int _sectionLength = 0;
     private int _totalLength = 0;
     private int _sectionStart = 0;

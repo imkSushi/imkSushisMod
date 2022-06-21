@@ -13,6 +13,10 @@ namespace imkSushisMod
             var recipe = new RecipeCreator(mod);
             AddExchangeRecipes(recipe);
             AddDemonAltarRecipes(recipe);
+            AddMeltingDownRecipes(recipe);
+            AddDungeonChestRecipes(recipe);
+            AddWeaponRecipes(recipe);
+            AddWoodenChestRecipes(recipe);
             
             if (RecipeCreator.FORMATRECIPES)
             {
@@ -115,6 +119,19 @@ namespace imkSushisMod
             recipe.New((PearlwoodChest, 5), TempleKey, (SpectreBar, 10), (HallowedBar, 9), TileID.HeavyWorkBench, HallowedChest);
             recipe.New((BorealWoodChest, 5), TempleKey, (SpectreBar, 10), (FrostCore, 2), TileID.HeavyWorkBench, FrozenChest);
             recipe.New((DesertChest, 5), TempleKey, (SpectreBar, 10), (HellstoneBar, 9), TileID.HeavyWorkBench, DungeonDesertChest);
+        }
+
+        public static void AddMeltingDownRecipes(RecipeCreator recipe)
+        {
+            AddMeltingDownBarsRecipes(recipe);
+            AddMeltingDownStaffsRecipes(recipe);
+            AddMeltingDownAxesRecipes(recipe);
+            AddMeltingDownHammersRecipes(recipe);
+            AddMeltingDownSwordsRecipes(recipe);
+            AddMeltingDownBowsRecipes(recipe);
+            AddMeltingDownPickaxesRecipes(recipe);
+            AddMeltingDownArmorRecipes(recipe);
+            AddMeltingDownOthersRecipes(recipe);
         }
 
         public static void AddMeltingDownBarsRecipes(RecipeCreator recipe)
