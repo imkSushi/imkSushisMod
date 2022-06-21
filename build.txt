@@ -1,0 +1,3 @@
+displayName = imkSushi's Mod
+author = imkSushi
+version = 5.0.0
