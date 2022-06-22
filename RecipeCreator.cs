@@ -23,8 +23,8 @@ public class RecipeCreator
     }
 
     public void New((int ingredient, int stack, bool group)[] ingredients,
-        ushort[] tiles,
-        (short item, int stack) result,
+        int[] tiles,
+        (int item, int stack) result,
         bool format = FORMATRECIPES)
     {
         var recipe = _mod.CreateRecipe(result.item, result.stack);
@@ -70,72 +70,82 @@ public class RecipeCreator
             UpdateRecipeNumbers();
     }
 
-    public void New(short ingredient, ushort tile, short result, bool format = FORMATRECIPES)
+    public void New(int ingredient, int tile, int result, bool format = FORMATRECIPES)
     {
         New(new (int ingredient, int stack, bool group)[]{(ingredient, 1, false)}, new[]{tile}, (result, 1), format);
     }
 
-    public void New(short ingredient, ushort tile, (short item, int stack) result, bool format = FORMATRECIPES)
+    public void New(int ingredient, int tile, (int item, int stack) result, bool format = FORMATRECIPES)
     {
         New(new (int ingredient, int stack, bool group)[]{(ingredient, 1, false)}, new[]{tile}, result, format);
     }
 
-    public void New((short ingredient, int stack) ingredient, ushort tile, (short item, int stack) result, bool format = FORMATRECIPES)
+    public void New((int ingredient, int stack) ingredient, int tile, (int item, int stack) result, bool format = FORMATRECIPES)
     {
         New(new (int ingredient, int stack, bool group)[]{(ingredient.ingredient, ingredient.stack, false)}, new[]{tile}, result, format);
     }
     
-    public void NewG(int group, ushort tile, (short item, int stack) result, bool format = FORMATRECIPES)
+    public void NewG(int group, int tile, (int item, int stack) result, bool format = FORMATRECIPES)
     {
         New(new []{(group, 1, true)}, new[]{tile}, result, format);
     }
 
-    public void New((short ingredient, int stack) ingredient, ushort tile, short result, bool format = FORMATRECIPES)
+    public void New((int ingredient, int stack) ingredient, int tile, int result, bool format = FORMATRECIPES)
     {
         New(new (int ingredient, int stack, bool group)[]{ (ingredient.ingredient, ingredient.stack, false)}, new[]{tile}, (result, 1), format);
     }
     
-    public void NewGn(int group, short ingredient, ushort tile, (short item, int stack) result, bool format = FORMATRECIPES)
+    public void NewGn(int group, int ingredient, int tile, (int item, int stack) result, bool format = FORMATRECIPES)
     {
         New(new (int ingredient, int stack, bool group)[]{ (group, 1, true), (ingredient, 1, false)}, new[]{tile}, result, format);
     }
+    
+    public void New(int ingredient1, (int ingredient, int stack) ingredient2, int tile, int result, bool format = FORMATRECIPES)
+    {
+        New(new (int ingredient, int stack, bool group)[]{ (ingredient1, 1, false), (ingredient2.ingredient, ingredient2.stack, false)}, new[]{tile}, (result, 1), format);
+    }
 
-    public void New(short ingredient1, short ingredient2, short ingredient3, short ingredient4, ushort tile, short result, bool format = FORMATRECIPES)
+    public void New(int ingredient1, int ingredient2, int ingredient3, int ingredient4, int tile, int result, bool format = FORMATRECIPES)
     {
         New(new(int ingredient, int stack, bool group)[]{(ingredient1, 1, false), (ingredient2, 1, false), (ingredient3, 1, false), (ingredient4, 1, false)}, new[]{tile}, (result, 1), format);
     }
     
-    public void New((short ingredient, int stack) ingredient1, short ingredient2, ushort tile, short result, bool format = FORMATRECIPES)
+    public void New(int ingredient1, int ingredient2, int tile, int result, bool format = FORMATRECIPES)
+    {
+        New(new(int ingredient, int stack, bool group)[]{(ingredient1, 1, false), (ingredient2, 1, false)}, new[]{tile}, (result, 1), format);
+    }
+    
+    public void New((int ingredient, int stack) ingredient1, int ingredient2, int tile, int result, bool format = FORMATRECIPES)
     {
         New(new(int ingredient, int stack, bool group)[]{(ingredient1.ingredient, ingredient1.stack, false), (ingredient2, 1, false)}, new[]{tile}, (result, 1), format);
     }
     
-    public void New((short ingredient, int stack) ingredient1, (short ingredient, int stack) ingredient2, ushort tile, short result, bool format = FORMATRECIPES)
+    public void New((int ingredient, int stack) ingredient1, (int ingredient, int stack) ingredient2, int tile, int result, bool format = FORMATRECIPES)
     {
         New(new(int ingredient, int stack, bool group)[]{(ingredient1.ingredient, ingredient1.stack, false), (ingredient2.ingredient, ingredient2.stack, false)}, new[]{tile}, (result, 1), format);
     }
     
-    public void New((short ingredient, int stack) ingredient1, (short ingredient, int stack) ingredient2, short ingredient3, ushort tile, short result, bool format = FORMATRECIPES)
+    public void New((int ingredient, int stack) ingredient1, (int ingredient, int stack) ingredient2, int ingredient3, int tile, int result, bool format = FORMATRECIPES)
     {
         New(new(int ingredient, int stack, bool group)[]{(ingredient1.ingredient, ingredient1.stack, false), (ingredient2.ingredient, ingredient2.stack, false), (ingredient3, 1, false)}, new[]{tile}, (result, 1), format);
     }
     
-    public void New((short ingredient, int stack) ingredient1, (short ingredient, int stack) ingredient2, (short ingredient, int stack) ingredient3, ushort tile, short result, bool format = FORMATRECIPES)
+    public void New((int ingredient, int stack) ingredient1, (int ingredient, int stack) ingredient2, (int ingredient, int stack) ingredient3, int tile, int result, bool format = FORMATRECIPES)
     {
         New(new(int ingredient, int stack, bool group)[]{(ingredient1.ingredient, ingredient1.stack, false), (ingredient2.ingredient, ingredient2.stack, false), (ingredient3.ingredient, ingredient3.stack, false)}, new[]{tile}, (result, 1), format);
     }
     
-    public void New((short ingredient, int stack) ingredient1, short ingredient2, (short ingredient, int stack) ingredient3, (short ingredient, int stack) ingredient4, ushort tile, short result, bool format = FORMATRECIPES)
+    public void New((int ingredient, int stack) ingredient1, int ingredient2, (int ingredient, int stack) ingredient3, (int ingredient, int stack) ingredient4, int tile, int result, bool format = FORMATRECIPES)
     {
         New(new(int ingredient, int stack, bool group)[]{(ingredient1.ingredient, ingredient1.stack, false), (ingredient2, 1, false), (ingredient3.ingredient, ingredient3.stack, false), (ingredient4.ingredient, ingredient4.stack, false)}, new[]{tile}, (result, 1), format);
     }
     
-    public void New(short ingredient1, short ingredient2, (short ingredient, int stack) ingredient3, (short ingredient, int stack) ingredient4, (short ingredient, int stack) ingredient5, ushort tile, short result, bool format = FORMATRECIPES)
+    public void New(int ingredient1, int ingredient2, (int ingredient, int stack) ingredient3, (int ingredient, int stack) ingredient4, (int ingredient, int stack) ingredient5, int tile, int result, bool format = FORMATRECIPES)
     {
         New(new(int ingredient, int stack, bool group)[]{(ingredient1, 1, false), (ingredient2, 1, false), (ingredient3.ingredient, ingredient3.stack, false), (ingredient4.ingredient, ingredient4.stack, false), (ingredient5.ingredient, ingredient5.stack, false)}, new[]{tile}, (result, 1), format);
     }
     
-    public string GetItemName(short id)
+    public string GetItemName(int id)
     {
         return Lang.GetItemName(id).Value;
     }
@@ -145,7 +155,7 @@ public class RecipeCreator
         return RecipeGroup.recipeGroups[id].GetText();
     }
     
-    public string GetTileName(ushort id)
+    public string GetTileName(int id)
     {
         return Lang.GetMapObjectName(MapHelper.tileLookup[id]);
     }
@@ -172,7 +182,7 @@ public class RecipeCreator
         _totalLength++;
     }
 
-    public void New2Way(short item1, short item2, ushort tile, bool format = FORMATRECIPES)
+    public void New2Way(int item1, int item2, int tile, bool format = FORMATRECIPES)
     {
         New(item1, tile, item2, false);
         New(item2, tile, item1, false);
@@ -181,8 +191,32 @@ public class RecipeCreator
             _recipeText.Add($"{GetItemName(item1)} <-> {GetItemName(item2)} @ {GetTileName(tile)}");
         }
     }
+    
+    public void NewTaxed2Way(int item1, int item2, int tax, int tile, bool format = FORMATRECIPES)
+    {
+        New(item1, tax, tile, item2, false);
+        New(item2, tax, tile, item1, false);
+        if (format)
+        {
+            _recipeText.Add($"{GetItemName(item1)} <-> {GetItemName(item2)} @ {GetTileName(tile)} (+ {GetItemName(tax)})");
+        }
+    }
 
-    public void New3Way(short item1, short item2, short item3, ushort tile, bool format = FORMATRECIPES)
+    public void NewTaxed2Way(int item1,
+        int item2,
+        (int item, int stack) tax,
+        int tile,
+        bool format = FORMATRECIPES)
+    {
+        New(item1, (tax.item, tax.stack), tile, item2, false);
+        New(item2, (tax.item, tax.stack), tile, item1, false);
+        if (format)
+        {
+            _recipeText.Add($"{GetItemName(item1)} <-> {GetItemName(item2)} @ {GetTileName(tile)} (+ {tax.stack}x {GetItemName(tax.item)})");
+        }
+    }
+
+    public void New3Way(int item1, int item2, int item3, int tile, bool format = FORMATRECIPES)
     {
         New2Way(item1, item2, tile, false);
         New2Way(item2, item3, tile, false);
@@ -190,6 +224,46 @@ public class RecipeCreator
         if (format)
         {
             _recipeText.Add($"{GetItemName(item1)} <-> {GetItemName(item2)} <-> {GetItemName(item3)} @ {GetTileName(tile)}");
+        }
+    }
+
+    public void NewTaxed3Way(int item1, int item2, int item3, int tax, int tile, bool format = FORMATRECIPES)
+    {
+        NewTaxed2Way(item1, item2, tax, tile, false);
+        NewTaxed2Way(item2, item3, tax, tile, false);
+        NewTaxed2Way(item3, item1, tax, tile, false);
+        if (format)
+        {
+            _recipeText.Add($"{GetItemName(item1)} <-> {GetItemName(item2)} <-> {GetItemName(item3)} @ {GetTileName(tile)} (+ {GetItemName(tax)})");
+        }
+    }
+    
+    public void NewTaxed3Way(int item1, int item2, int item3, (int item, int stack) tax, int tile, bool format = FORMATRECIPES)
+    {
+        NewTaxed2Way(item1, item2, tax, tile, false);
+        NewTaxed2Way(item2, item3, tax, tile, false);
+        NewTaxed2Way(item3, item1, tax, tile, false);
+        if (format)
+        {
+            _recipeText.Add($"{GetItemName(item1)} <-> {GetItemName(item2)} <-> {GetItemName(item3)} @ {GetTileName(tile)} (+ {tax.stack}x {GetItemName(tax.item)})");
+        }
+    }
+
+    public void NewTaxed4Way(int item1,
+        int item2,
+        int item3,
+        int item4,
+        (int item, int stack) tax,
+        int tile,
+        bool format = FORMATRECIPES)
+    {
+        NewTaxed3Way(item1, item2, item3, tax, tile, false);
+        NewTaxed2Way(item1, item4, tax, tile, false);
+        NewTaxed2Way(item2, item4, tax, tile, false);
+        NewTaxed2Way(item3, item4, tax, tile, false);
+        if (format)
+        {
+            _recipeText.Add($"{GetItemName(item1)} <-> {GetItemName(item2)} <-> {GetItemName(item3)} <-> {GetItemName(item4)} @ {GetTileName(tile)} (+ {tax.stack}x {GetItemName(tax.item)})");
         }
     }
 
