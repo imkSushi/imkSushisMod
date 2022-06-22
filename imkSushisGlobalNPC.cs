@@ -1,5 +1,4 @@
-﻿using System;
-using imkSushisMod.Items;
+﻿using imkSushisMod.Items;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
