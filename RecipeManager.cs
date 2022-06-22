@@ -1,8 +1,10 @@
 ﻿using System;
+using imkSushisMod.Items;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ID.ItemID;
 using static Terraria.ID.TileID;
+using static Terraria.ModLoader.ModContent;
 
 namespace imkSushisMod
 {
@@ -19,6 +21,8 @@ namespace imkSushisMod
             AddDungeonChestRecipes(recipe);
             AddWeaponRecipes(recipe);
             AddWoodenChestRecipes(recipe);
+            AddOtherPotionRecipes(recipe);
+            AddSummoningPotionRecipes(recipe);
             recipe.StartNewRecipeSection("");
             
             if (RecipeCreator.FORMATRECIPES)
@@ -27,7 +31,7 @@ namespace imkSushisMod
                 var path = Console.ReadLine();
                 if (path != "")
                 {
-                    recipe.OutputRecipes(Console.ReadLine());
+                    recipe.OutputRecipes(path);
                 }
             }
         }
@@ -203,21 +207,21 @@ namespace imkSushisMod
         public static void AddMelterCraftingRecipes(RecipeCreator recipe)
         {
             recipe.StartNewRecipeSection("Melter Crafting");
-            recipe.New(Furnace, (ItemID.ClayBlock, 20), WorkBenches, ModContent.ItemType<Items.Melter>());
-            recipe.New(ItemID.Hellforge, (ItemID.ClayBlock, 20), WorkBenches, ModContent.ItemType<Items.Hellmelter>());
-            recipe.New(ItemID.AdamantiteForge, (ItemID.ClayBlock, 20), WorkBenches, ModContent.ItemType<Items.AdamantiteMelter>());
-            recipe.New(ItemID.TitaniumForge, (ItemID.ClayBlock, 20), WorkBenches, ModContent.ItemType<Items.TitaniumMelter>());
+            recipe.New(Furnace, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Items.Melter>());
+            recipe.New(ItemID.Hellforge, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Items.Hellmelter>());
+            recipe.New(ItemID.AdamantiteForge, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Items.AdamantiteMelter>());
+            recipe.New(ItemID.TitaniumForge, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Items.TitaniumMelter>());
             
-            recipe.New(ModContent.ItemType<Items.Melter>(), (HellstoneBar, 10), Anvils, (short) ModContent.ItemType<Items.Hellmelter>());
-            recipe.New(ModContent.ItemType<Items.Hellmelter>(), (AdamantiteOre, 30), TileID.MythrilAnvil, ModContent.ItemType<Items.AdamantiteMelter>());
-            recipe.New(ModContent.ItemType<Items.Hellmelter>(), (TitaniumOre, 30), TileID.MythrilAnvil, ModContent.ItemType<Items.TitaniumMelter>());
+            recipe.New(ItemType<Items.Melter>(), (HellstoneBar, 10), Anvils, (short) ItemType<Items.Hellmelter>());
+            recipe.New(ItemType<Items.Hellmelter>(), (AdamantiteOre, 30), TileID.MythrilAnvil, ItemType<Items.AdamantiteMelter>());
+            recipe.New(ItemType<Items.Hellmelter>(), (TitaniumOre, 30), TileID.MythrilAnvil, ItemType<Items.TitaniumMelter>());
         }
 
         public static void AddMeltingDownBarsRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Bars");
             recipe.New(CopperBar, melter, (CopperOre, 2));
@@ -249,9 +253,9 @@ namespace imkSushisMod
 
         public static void AddMeltingDownStaffsRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Staffs");
             recipe.New(AmethystStaff, melter, (ItemID.Amethyst, 4));
@@ -272,9 +276,9 @@ namespace imkSushisMod
 
         public static void AddMeltingDownAxesRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Axes");
             recipe.New(CopperAxe, melter, (CopperBar, 3));
@@ -293,9 +297,9 @@ namespace imkSushisMod
 
         public static void AddMeltingDownSaberRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Phasesabers & Phaseblades");
             recipe.New(BluePhaseblade, melter, (MeteoriteBar, 7));
@@ -337,9 +341,9 @@ namespace imkSushisMod
         
         public static void AddMeltingDownBowsRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Bows");
             recipe.New(CopperBow, melter, (CopperBar, 3));
@@ -357,9 +361,9 @@ namespace imkSushisMod
         
         public static void AddMeltingDownSwordsRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Swords");
             recipe.New(CopperShortsword, melter, (CopperBar, 2));
@@ -388,9 +392,9 @@ namespace imkSushisMod
         
         public static void AddMeltingDownArmorRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Armor");
             recipe.New(CopperHelmet, melter, (CopperBar, 6));
@@ -447,9 +451,9 @@ namespace imkSushisMod
         
         public static void AddMeltingDownHammersRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Hammers");
             recipe.New(CopperHammer, melter, (CopperBar, 4));
@@ -468,9 +472,9 @@ namespace imkSushisMod
 
         public static void MeltingDownGunsRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Guns");
             recipe.New(SpaceGun, melter, (MeteoriteBar, 10));
@@ -480,9 +484,9 @@ namespace imkSushisMod
 
         public static void AddMeltingDownPickaxesRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Pickaxes");
             recipe.New(CopperPickaxe, melter, (CopperBar, 4));
@@ -504,9 +508,9 @@ namespace imkSushisMod
 
         public static void AddMeltingDownYoyosRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Yoyos");
             recipe.New(CorruptYoyo, melter, (DemoniteBar, 6));
@@ -515,9 +519,9 @@ namespace imkSushisMod
 
         public static void AddMeltingDownFishingRodsRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Fishing Rods");
             recipe.New(FisherofSouls, melter, (DemoniteBar, 4));
@@ -528,9 +532,9 @@ namespace imkSushisMod
         
         public static void AddMeltingDownOthersRecipes(RecipeCreator recipe)
         {
-            var melter = ModContent.TileType<Tiles.Melter>();
-            var hellmelter = ModContent.TileType<Tiles.Hellmelter>();
-            var adamantitemelter = ModContent.TileType<Tiles.AdamantiteMelter>();
+            var melter = TileType<Tiles.Melter>();
+            var hellmelter = TileType<Tiles.Hellmelter>();
+            var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
             
             recipe.StartNewRecipeSection("Melting Down Others");
             recipe.New(CopperWatch, melter, (CopperBar, 5));
@@ -538,7 +542,7 @@ namespace imkSushisMod
             recipe.New(SilverWatch, melter, (SilverBar, 5));
             recipe.New(TungstenWatch, melter, (TungstenBar, 5));
             recipe.New(GoldWatch, melter, (GoldBar, 5));
-            recipe.New((PlatinumWatch, 100), melter, GoldBar);
+            recipe.New(PlatinumWatch, melter, (PlatinumBar, 5));
             recipe.New(Magiluminescence, melter, (DemoniteBar, 6));
             recipe.New(Magiluminescence, melter, (CrimtaneBar, 6));
             recipe.New(Magiluminescence, melter, (ItemID.Topaz, 2));
@@ -551,6 +555,52 @@ namespace imkSushisMod
             recipe.New(Flamarang, hellmelter, (HellstoneBar, 5));
             recipe.New((HellfireArrow, 150), hellmelter, HellstoneBar);
             recipe.New(ImpStaff, hellmelter, (HellstoneBar, 8));
+        }
+
+        public static void AddOtherPotionRecipes(RecipeCreator recipe)
+        {
+            recipe.StartNewRecipeSection("Other Potions");
+            recipe.New(BottledWater, Daybloom, Deathweed, Gravestone, Bottles, ItemType<ResurrectionPotion>());
+            recipe.New(BottledWater, (MeteoriteBar, 10), Bottles, ItemType<MeteoritePotion>());
+            recipe.New(BottledWater, Deathweed, Waterleaf, Bass, Bottles, ItemType<AnglerAmnesiaPotion>());
+        }
+
+        public static void AddSummoningPotionRecipes(RecipeCreator recipe)
+        {
+            var basePotion = ItemType<BaseSummoningPotion>();
+            
+            recipe.StartNewRecipeSection("Summoning Potions");
+            recipe.New(BottledWater, Daybloom, Moonglow, LavaBucket, Bottles, basePotion);
+            recipe.New(basePotion, (Bass, 10), Bottles, ItemType<AnglerSummoningPotion>());
+            recipe.New(basePotion, (MusketBall, 75), Bottles, ItemType<ArmsDealerSummoningPotion>());
+            recipe.New(basePotion, (Ale, 5), Bottles, ItemType<BartenderSummoningPotion>());
+            recipe.New(basePotion, GoldenKey, Bottles, ItemType<ClothierSummoningPotion>());
+            recipe.New(basePotion, (Nanites, 10), Bottles, ItemType<CyborgSummoningPotion>());
+            recipe.New(basePotion, (Bomb, 25), Bottles, ItemType<DemolitionistSummoningPotion>());
+            recipe.New(basePotion, (ShadowScale, 2), Bottles, ItemType<DryadSummoningPotion>());
+            recipe.New(basePotion, (TissueSample, 2), Bottles, ItemType<DryadSummoningPotion>());
+            recipe.New(basePotion, StrangePlant1, Bottles, ItemType<DyeTraderSummoningPotion>());
+            recipe.New(basePotion, StrangePlant2, Bottles, ItemType<DyeTraderSummoningPotion>());
+            recipe.New(basePotion, StrangePlant3, Bottles, ItemType<DyeTraderSummoningPotion>());
+            recipe.New(basePotion, StrangePlant4, Bottles, ItemType<DyeTraderSummoningPotion>());
+            recipe.New(basePotion, (SpikyBall, 25), Bottles, ItemType<GoblinTinkererSummoningPotion>());
+            recipe.New(basePotion, GolfBall, Bottles, ItemType<GolferSummoningPotion>());
+            recipe.New(basePotion, GuideVoodooDoll, Bottles, ItemType<GuideSummoningPotion>());
+            recipe.New(basePotion, (Wire, 20), Bottles, ItemType<MechanicSummoningPotion>());
+            recipe.New(basePotion, (SilverCoin, 50), Bottles, ItemType<MerchantSummoningPotion>());
+            recipe.New(basePotion, LesserHealingPotion, Bottles, ItemType<NurseSummoningPotion>());
+            recipe.New(basePotion, (Wood, 28), Bottles, ItemType<PainterSummoningPotion>());
+            recipe.New(basePotion, (ItemID.Confetti, 10), Bottles, ItemType<PartyGirlSummoningPotion>());
+            recipe.New(basePotion, PirateMap, Bottles, ItemType<PirateSummoningPotion>());
+            recipe.New(basePotion, GlassSlipper, Bottles, ItemType<PrincessSummoningPotion>());
+            recipe.New(basePotion, Present, Bottles, ItemType<SantaClausSummoningPotion>());
+            recipe.New(basePotion, (HallowedBar, 2), Bottles, ItemType<SteampunkerSummoningPotion>());
+            recipe.New(basePotion, (ItemID.Cobweb, 30), Bottles, ItemType<StylistSummoningPotion>());
+            recipe.New(basePotion, (GoldCoin, 10), PurificationPowder, Bottles, ItemType<TaxCollectorSummoningPotion>());
+            recipe.New(basePotion, (GlowingMushroom, 100), Bottles, ItemType<TruffleSummoningPotion>());
+            recipe.New(basePotion, (ItemID.RichMahogany, 10), Bottles, ItemType<WitchDoctorSummoningPotion>());
+            recipe.New(basePotion, GreaterManaPotion, Bottles, ItemType<WizardSummoningPotion>());
+            recipe.New(basePotion, Bunny, Penguin, Squirrel, Goldfish, Bottles, ItemType<ZoologistSummoningPotion>());
         }
 
         public static void AddWeaponRecipes(RecipeCreator recipe)
