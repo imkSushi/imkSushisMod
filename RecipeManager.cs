@@ -9,6 +9,7 @@ using static imkSushisMod.MeltingRecipes;
 
 namespace imkSushisMod
 {
+    [GenerateRecipes]
     public static class RecipeManager
     {
         public static void AddRecipes(Mod mod)
@@ -20,7 +21,6 @@ namespace imkSushisMod
             AddDemonAltarRecipes(recipe);
             AddMeltingDownRecipes(recipe);
             AddDungeonChestRecipes(recipe);
-            AddWeaponRecipes(recipe);
             AddWoodenChestRecipes(recipe);
             AddOtherPotionRecipes(recipe);
             AddSummoningPotionRecipes(recipe);
@@ -330,17 +330,17 @@ namespace imkSushisMod
             recipe.New((StoneBlock, 100), ManaCrystal, TileID.HeavyWorkBench, StarStatue);
         }
 
-        public static void AddWeaponRecipes(RecipeCreator recipe)
-        {
-            recipe.StartNewRecipeSection("Weapons");
-            recipe.NewG(RecipeGroupID.IronBar, WorkBenches, (ThrowingKnife, 25));
-            recipe.NewGn(RecipeGroupID.IronBar, ItemID.Chain, WorkBenches, (Shuriken, 50));
-        }
-
         public static void AddWoodenChestRecipes(RecipeCreator recipe)
         {
             recipe.StartNewRecipeSection("Wooden Chest Loot");
-            //recipe.New();
+            recipe.New((CopperBar, 8), Anvils, Spear);
+            recipe.New((TinBar, 8), Anvils, Spear);
+            recipe.NewNg((Wood, 20), RecipeGroupID.IronBar, WorkBench, WoodenBoomerang);
+            recipe.NewG(RecipeGroupID.IronBar, WorkBenches, (ThrowingKnife, 25));
+            recipe.NewGn(RecipeGroupID.IronBar, ItemID.Chain, WorkBenches, (Shuriken, 50));
+            recipe.New(TinBar, (Silk, 5), WorkBenches, Aglet);
+            recipe.New(CopperBar, (Silk, 5), WorkBenches, Aglet);
+            
         }
     }
 }

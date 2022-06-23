@@ -8,7 +8,7 @@ using Terraria.ModLoader;
 namespace imkSushisMod;
 
 
-public class RecipeCreator
+public partial class RecipeCreator
 {
     private Mod _mod;
     private List<string> _recipeText = new();
@@ -67,91 +67,6 @@ public class RecipeCreator
         
         if (FORMATRECIPES)
             UpdateRecipeNumbers();
-    }
-
-    public void New(int ingredient, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new (int ingredient, int stack, bool group)[]{(ingredient, 1, false)}, new[]{tile}, (result, 1), format);
-    }
-
-    public void New(int ingredient, int tile, (int item, int stack) result, bool format = FORMATRECIPES)
-    {
-        New(new (int ingredient, int stack, bool group)[]{(ingredient, 1, false)}, new[]{tile}, result, format);
-    }
-
-    public void New((int ingredient, int stack) ingredient, int tile, (int item, int stack) result, bool format = FORMATRECIPES)
-    {
-        New(new (int ingredient, int stack, bool group)[]{(ingredient.ingredient, ingredient.stack, false)}, new[]{tile}, result, format);
-    }
-    
-    public void NewG(int group, int tile, (int item, int stack) result, bool format = FORMATRECIPES)
-    {
-        New(new []{(group, 1, true)}, new[]{tile}, result, format);
-    }
-
-    public void New((int ingredient, int stack) ingredient, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new (int ingredient, int stack, bool group)[]{ (ingredient.ingredient, ingredient.stack, false)}, new[]{tile}, (result, 1), format);
-    }
-    
-    public void NewGn(int group, int ingredient, int tile, (int item, int stack) result, bool format = FORMATRECIPES)
-    {
-        New(new (int ingredient, int stack, bool group)[]{ (group, 1, true), (ingredient, 1, false)}, new[]{tile}, result, format);
-    }
-    
-    public void New(int ingredient1, (int ingredient, int stack) ingredient2, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new (int ingredient, int stack, bool group)[]{ (ingredient1, 1, false), (ingredient2.ingredient, ingredient2.stack, false)}, new[]{tile}, (result, 1), format);
-    }
-
-    public void New(int ingredient1, int ingredient2, int ingredient3, int ingredient4, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new(int ingredient, int stack, bool group)[]{(ingredient1, 1, false), (ingredient2, 1, false), (ingredient3, 1, false), (ingredient4, 1, false)}, new[]{tile}, (result, 1), format);
-    }
-
-    public void New(int ingredient1, int ingredient2, int ingredient3, int ingredient4, int ingredient5, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new(int ingredient, int stack, bool group)[]{(ingredient1, 1, false), (ingredient2, 1, false), (ingredient3, 1, false), (ingredient4, 1, false), (ingredient5, 1, false)}, new[]{tile}, (result, 1), format);
-    }
-    
-    public void New(int ingredient1, int ingredient2, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new(int ingredient, int stack, bool group)[]{(ingredient1, 1, false), (ingredient2, 1, false)}, new[]{tile}, (result, 1), format);
-    }
-    
-    public void New((int ingredient, int stack) ingredient1, int ingredient2, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new(int ingredient, int stack, bool group)[]{(ingredient1.ingredient, ingredient1.stack, false), (ingredient2, 1, false)}, new[]{tile}, (result, 1), format);
-    }
-    
-    public void New((int ingredient, int stack) ingredient1, (int ingredient, int stack) ingredient2, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new(int ingredient, int stack, bool group)[]{(ingredient1.ingredient, ingredient1.stack, false), (ingredient2.ingredient, ingredient2.stack, false)}, new[]{tile}, (result, 1), format);
-    }
-    
-    public void New((int ingredient, int stack) ingredient1, (int ingredient, int stack) ingredient2, int ingredient3, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new(int ingredient, int stack, bool group)[]{(ingredient1.ingredient, ingredient1.stack, false), (ingredient2.ingredient, ingredient2.stack, false), (ingredient3, 1, false)}, new[]{tile}, (result, 1), format);
-    }
-    
-    public void New(int ingredient1, (int ingredient, int stack) ingredient2, int ingredient3, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new(int ingredient, int stack, bool group)[]{(ingredient1, 1, false), (ingredient2.ingredient, ingredient2.stack, false), (ingredient3, 1, false)}, new[]{tile}, (result, 1), format);
-    }
-    
-    public void New((int ingredient, int stack) ingredient1, (int ingredient, int stack) ingredient2, (int ingredient, int stack) ingredient3, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new(int ingredient, int stack, bool group)[]{(ingredient1.ingredient, ingredient1.stack, false), (ingredient2.ingredient, ingredient2.stack, false), (ingredient3.ingredient, ingredient3.stack, false)}, new[]{tile}, (result, 1), format);
-    }
-    
-    public void New((int ingredient, int stack) ingredient1, int ingredient2, (int ingredient, int stack) ingredient3, (int ingredient, int stack) ingredient4, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new(int ingredient, int stack, bool group)[]{(ingredient1.ingredient, ingredient1.stack, false), (ingredient2, 1, false), (ingredient3.ingredient, ingredient3.stack, false), (ingredient4.ingredient, ingredient4.stack, false)}, new[]{tile}, (result, 1), format);
-    }
-    
-    public void New(int ingredient1, int ingredient2, (int ingredient, int stack) ingredient3, (int ingredient, int stack) ingredient4, (int ingredient, int stack) ingredient5, int tile, int result, bool format = FORMATRECIPES)
-    {
-        New(new(int ingredient, int stack, bool group)[]{(ingredient1, 1, false), (ingredient2, 1, false), (ingredient3.ingredient, ingredient3.stack, false), (ingredient4.ingredient, ingredient4.stack, false), (ingredient5.ingredient, ingredient5.stack, false)}, new[]{tile}, (result, 1), format);
     }
     
     public string GetItemName(int id)

@@ -8,6 +8,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace imkSushisMod;
 
+[GenerateRecipes]
 public class MeltingRecipes
 {
 
