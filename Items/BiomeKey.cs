@@ -9,11 +9,6 @@ namespace imkSushisMod.Items
 		{
 			Item.width = 14;
 			Item.height = 22;
-			Item.consumable = true;
-			Item.useAnimation = 15;
-			Item.useTime = 10;
-			Item.useStyle = 1;
-			Item.useTurn = true;
 			Item.rare = ItemRarityID.Blue;
 			Item.value = 50000;
 		}
@@ -23,7 +18,5 @@ namespace imkSushisMod.Items
 			DisplayName.SetDefault("Biome Key");
 			Tooltip.SetDefault("Generic Corn Flakes\nTransfer from one biome key to another through this");
 		}
-		
-		//TODO: Add recipes
 	}
 }

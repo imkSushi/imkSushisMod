@@ -1,3 +1,4 @@
 displayName = imkSushi's Mod
 author = imkSushi
 version = 5.0.0
+homepage = http://forums.terraria.org/index.php?threads/imksushis-mod.34233/
