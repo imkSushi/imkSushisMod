@@ -36,6 +36,9 @@ namespace imkSushisMod
             AddSanstoneChestRecipes(recipe);
             AddMushroomChestRecipes(recipe);
             AddMinecartRecipes(recipe);
+            AddTrapsRecipes(recipe);
+            AddUntrapChestRecipes(recipe);
+            
             recipe.StartNewRecipeSection("");
             
             if (RecipeCreator.FORMATRECIPES)
@@ -51,7 +54,7 @@ namespace imkSushisMod
 
         public static void AddExchangeRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Bars");
+            recipe.StartNewRecipeSection("Bars Exchange Recipes");
             recipe.New2Way(CopperBar, TinBar, TinkerersWorkbench);
             recipe.New2Way(IronBar, LeadBar, TinkerersWorkbench);
             recipe.New2Way(SilverBar, TungstenBar, TinkerersWorkbench);
@@ -61,7 +64,7 @@ namespace imkSushisMod
             recipe.New2Way(MythrilBar, OrichalcumBar, TinkerersWorkbench);
             recipe.New2Way(AdamantiteBar, TitaniumBar, TinkerersWorkbench);
             
-            recipe.StartNewRecipeSection("Ores");
+            recipe.StartNewRecipeSection("Ores Exchange Recipes");
             recipe.New2Way(CopperOre, TinOre, TinkerersWorkbench);
             recipe.New2Way(IronOre, LeadOre, TinkerersWorkbench);
             recipe.New2Way(SilverOre, TungstenOre, TinkerersWorkbench);
@@ -71,7 +74,7 @@ namespace imkSushisMod
             recipe.New2Way(MythrilOre, OrichalcumOre, TinkerersWorkbench);
             recipe.New2Way(AdamantiteOre, TitaniumOre, TinkerersWorkbench);
 
-            recipe.StartNewRecipeSection("Materials");
+            recipe.StartNewRecipeSection("Materials Exchange Recipes");
             recipe.New2Way(CursedFlame, Ichor, TinkerersWorkbench);
             recipe.New2Way(TissueSample, ShadowScale, TinkerersWorkbench);
             recipe.New2Way(Vertebrae, RottenChunk, TinkerersWorkbench);
@@ -84,24 +87,24 @@ namespace imkSushisMod
             recipe.New2Way(WormScarf, BrainOfConfusion, TinkerersWorkbench);
             
             
-            recipe.StartNewRecipeSection("Orb & Heart Drops");
+            recipe.StartNewRecipeSection("Orb & Heart Drops Exchange Recipes");
             recipe.New2Way(Musket, TheUndertaker, TinkerersWorkbench);
             recipe.New2Way(ShadowOrb, CrimsonHeart, TinkerersWorkbench);
             recipe.New2Way(Vilethorn, CrimsonRod, TinkerersWorkbench);
             recipe.New2Way(BallOHurt, TheRottedFork, TinkerersWorkbench);
             recipe.New2Way(BandofStarpower, PanicNecklace, TinkerersWorkbench);
             
-            recipe.StartNewRecipeSection("Woods");
+            recipe.StartNewRecipeSection("Woods Exchange Recipes");
             recipe.New3Way(ItemID.PalmWood, ItemID.RichMahogany, ItemID.BorealWood, TinkerersWorkbench);
             
-            recipe.StartNewRecipeSection("Mimic Drops");
+            recipe.StartNewRecipeSection("Mimic Drops Exchange Recipes");
             recipe.New2Way(DartPistol, DartRifle, TinkerersWorkbench);
             recipe.New2Way(WormHook, TendonHook, TinkerersWorkbench);
             recipe.New2Way(ChainGuillotines, FetidBaghnakhs, TinkerersWorkbench);
             recipe.New2Way(ClingerStaff, SoulDrain, TinkerersWorkbench);
             recipe.New2Way(PutridScent, FleshKnuckles, TinkerersWorkbench);
             
-            recipe.StartNewRecipeSection("Other");
+            recipe.StartNewRecipeSection("Other Exchange Recipes");
             recipe.New2Way(SilverBullet, TungstenBullet, TinkerersWorkbench);
         }
 
@@ -110,7 +113,7 @@ namespace imkSushisMod
         public static void AddTaxedExchangeRecipes(RecipeCreator recipe)
         {
             var mythrilAnvils = TileID.MythrilAnvil;
-            recipe.StartNewRecipeSection("Taxed Exchanges");
+            recipe.StartNewRecipeSection("Taxed Exchanges Recipes");
             recipe.NewTaxed3Way(CobaltHat, CobaltHelmet, CobaltMask, (CobaltBar, 2), Anvils);
             recipe.NewTaxed3Way(PalladiumHeadgear, PalladiumHelmet, PalladiumMask, (PalladiumBar, 2), Anvils);
             recipe.NewTaxed3Way(MythrilHelmet, MythrilHat, MythrilHood, (MythrilBar, 2), mythrilAnvils);
@@ -216,7 +219,7 @@ namespace imkSushisMod
         public static void AddDungeonChestRecipes(RecipeCreator recipe)
         {
             var mythrilAnvil = TileID.MythrilAnvil;
-            recipe.StartNewRecipeSection("Dungeon Chest");
+            recipe.StartNewRecipeSection("Dungeon Chest Recipes");
             recipe.New(CorruptionChest, CorruptionKey, (SoulofFright, 5), (SoulofMight, 5), (SoulofSight, 5), mythrilAnvil, ScourgeoftheCorruptor);
             recipe.New(CrimsonChest, CrimsonKey, (SoulofFright, 5), (SoulofMight, 5), (SoulofSight, 5), mythrilAnvil, VampireKnives);
             recipe.New(JungleChest, JungleKey, (SoulofFright, 5), (SoulofMight, 5), (SoulofSight, 5), mythrilAnvil, PiranhaGun);
@@ -236,7 +239,7 @@ namespace imkSushisMod
         {
             var biomeKey = ItemType<BiomeKey>();
             
-            recipe.StartNewRecipeSection("Biome Key");
+            recipe.StartNewRecipeSection("Biome Key Recipes");
             recipe.New(CorruptionKey, (GreenSolution, 10), TinkerersWorkbench, biomeKey);
             recipe.New(CrimsonKey, (GreenSolution, 10), TinkerersWorkbench, biomeKey);
             recipe.New(JungleKey, (GreenSolution, 10), TinkerersWorkbench, biomeKey);
@@ -277,7 +280,7 @@ namespace imkSushisMod
 
         public static void AddOtherPotionRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Other Potions");
+            recipe.StartNewRecipeSection("Other Potions Recipes");
             recipe.New(BottledWater, Daybloom, Deathweed, Gravestone, Bottles, ItemType<ResurrectionPotion>());
             recipe.New(BottledWater, (MeteoriteBar, 10), Bottles, ItemType<MeteoritePotion>());
             recipe.New(BottledWater, Deathweed, Waterleaf, Bass, Bottles, ItemType<AnglerAmnesiaPotion>());
@@ -287,7 +290,7 @@ namespace imkSushisMod
         {
             var basePotion = ItemType<BaseSummoningPotion>();
             
-            recipe.StartNewRecipeSection("Summoning Potions");
+            recipe.StartNewRecipeSection("Summoning Potions Recipes");
             recipe.New(BottledWater, Daybloom, Moonglow, LavaBucket, Bottles, basePotion);
             recipe.New(basePotion, (Bass, 10), Bottles, ItemType<AnglerSummoningPotion>());
             recipe.New(basePotion, (MusketBall, 75), Bottles, ItemType<ArmsDealerSummoningPotion>());
@@ -323,7 +326,7 @@ namespace imkSushisMod
 
         public static void AddStatueRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Statues");
+            recipe.StartNewRecipeSection("Statues Recipes");
             void AddStatueRecipe(int statue, int banner)
             {
                 recipe.New(banner, (StoneBlock, 100), TileID.HeavyWorkBench, statue);
@@ -365,7 +368,7 @@ namespace imkSushisMod
 
         public static void AddMinecartRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Minecarts");
+            recipe.StartNewRecipeSection("Minecarts Recipes");
             recipe.New(Minecart, (ItemID.FossilOre, 2), Anvils, DesertMinecart);
             recipe.New(Minecart, (BeeWax, 2), Anvils, BeeMinecart);
             recipe.New(Minecart, (LadyBug, 3), Anvils, LadybugMinecart);
@@ -397,7 +400,7 @@ namespace imkSushisMod
 
         public static void AddWoodenChestRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Wooden Chest Loot");
+            recipe.StartNewRecipeSection("Wooden Chest Loot Recipes");
             recipe.NewG((CopperBars, 8), Anvils, Spear);
             recipe.NewNg((Wood, 20), RecipeGroupID.IronBar, WorkBench, WoodenBoomerang);
             recipe.NewNg((Wood, 10), RecipeGroupID.IronBar, WorkBenches, WandofSparking);
@@ -406,7 +409,7 @@ namespace imkSushisMod
 
         public static void AddGoldChestRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Gold Chest Loot");
+            recipe.StartNewRecipeSection("Gold Chest Loot Recipes");
             recipe.New(ItemID.LifeCrystal, ItemID.Chain, TinkerersWorkbench, BandofRegeneration);
             recipe.NewG((RecipeGroupID.IronBar, 5), ManaCrystal, TinkerersWorkbench, MagicMirror);
             recipe.New(ItemID.Bottle, (ItemID.Cloud, 25), TinkerersWorkbench, CloudinaBottle);
@@ -419,7 +422,7 @@ namespace imkSushisMod
 
         public static void AddPyramidChestRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Pyramid Chest Loot");
+            recipe.StartNewRecipeSection("Pyramid Chest Loot Recipes");
             recipe.New(CloudinaBottle, (SandBlock, 25), TinkerersWorkbench, SandstorminaBottle);
             recipe.NewG((GoldBars, 5), Anvils, PharaohsMask);
             recipe.NewG((GoldBars, 5), Anvils, PharaohsRobe);
@@ -428,14 +431,13 @@ namespace imkSushisMod
 
         public static void AddFrozenChestRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Frozen Chest Loot");
-            recipe.New(ItemID.Extractinator, (ItemID.IceBlock, 25), TinkerersWorkbench, ItemID.IceMachine);
+            recipe.StartNewRecipeSection("Frozen Chest Loot Recipes");
             recipe.New(MagicMirror, (ItemID.IceBlock, 25), TinkerersWorkbench, IceMirror);
         }
 
         public static void AddLihzahrdChestRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Lihzahrd Chest Loot");
+            recipe.StartNewRecipeSection("Lihzahrd Chest Loot Recipes");
             recipe.NewNng((ItemID.Glass, 10), (FallenStar, 25), (AdamantiteBars, 5), TileID.MythrilAnvil,
                 LihzahrdPowerCell);
             recipe.New((ItemID.LihzahrdBrick, 10), WorkBenches, ItemID.LihzahrdFurnace);
@@ -443,14 +445,14 @@ namespace imkSushisMod
 
         public static void AddLivingWoodChestRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Living Wood Chest Loot");
+            recipe.StartNewRecipeSection("Living Wood Chest Loot Recipes");
             recipe.New((Wood, 15), TileID.Sawmill, ItemID.LivingLoom);
             recipe.New(LivingWoodWand, Bird, TileID.LivingLoom, BabyBirdStaff);
         }
 
         public static void AddMushroomChestRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Mushroom Chest Loot");
+            recipe.StartNewRecipeSection("Mushroom Chest Loot Recipes");
             recipe.New((ShroomiteBar, 4), TileID.Autohammer, MushroomHat);
             recipe.New((ShroomiteBar, 8), TileID.Autohammer, MushroomVest);
             recipe.New((ShroomiteBar, 6), TileID.Autohammer, MushroomPants);
@@ -458,7 +460,7 @@ namespace imkSushisMod
 
         public static void AddSanstoneChestRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Sanstone Chest Loot");
+            recipe.StartNewRecipeSection("Sanstone Chest Loot Recipes");
             recipe.New((StoneBlock, 999), WorkBenches, EncumberingStone);
             recipe.New((SunplateBlock, 10), WorkBenches, ItemID.SkyMill);
             recipe.New(SunplateBlock, (ItemID.Cobweb, 14), TileID.SkyMill, ItemID.Cloud);
@@ -466,8 +468,81 @@ namespace imkSushisMod
 
         public static void AddWebbedChestRecipes(RecipeCreator recipe)
         {
-            recipe.StartNewRecipeSection("Webbed Chest Loot");
+            recipe.StartNewRecipeSection("Webbed Chest Loot Recipes");
             recipe.New(GrapplingHook, (ItemID.Cobweb, 42), TileID.TinkerersWorkbench, WebSlinger);
+        }
+
+        public static void AddTrapsRecipes(RecipeCreator recipe)
+        {
+            recipe.StartNewRecipeSection("Traps Recipes");
+            recipe.New((StoneBlock, 20), (WoodenArrow, 100), (Wire, 20), TileID.MythrilAnvil, DartTrap);
+            recipe.New((StoneBlock, 20), (LavaBucket, 3), (Wire, 20), (PressurePlates, 2), TileID.MythrilAnvil,
+                ItemID.GeyserTrap);
+            recipe.New((DartTrap, 3), (ItemID.LihzahrdBrick, 5), (Wire, 20), EndlessQuiver, TileID.MythrilAnvil, SuperDartTrap);
+            recipe.New(SuperDartTrap, (SpikyBall, 100), TileID.MythrilAnvil, SpikyBallTrap);
+            recipe.New(SuperDartTrap, (Spear, 3), TileID.MythrilAnvil, SpearTrap);
+            recipe.New(SuperDartTrap, ItemID.GeyserTrap, TileID.MythrilAnvil, FlameTrap);
+            recipe.New((ItemID.Chain, 2), (RecipeGroupID.IronBar, 3), (WoodenArrow, 5), Anvils, (Spike, 10));
+            recipe.New((Spike, 25), ItemID.LihzahrdBrick, TileID.MythrilAnvil, (WoodenSpike, 10));
+            recipe.New(Fake_GoldChest, GoldChest, Anvils, DeadMansChest);
+            recipe.New(DeadMansChest, TileID.Loom, DeadMansSweater);
+        }
+
+        public static void AddUntrapChestRecipes(RecipeCreator recipe)
+        {
+            recipe.StartNewRecipeSection("Untrap Chest Recipes");
+            recipe.New(Fake_BambooChest, TileID.HeavyWorkBench, BambooChest);
+            recipe.New(Fake_BlueDungeonChest, TileID.HeavyWorkBench, BlueDungeonChest);
+            recipe.New(Fake_BoneChest, TileID.HeavyWorkBench, BoneChest);
+            recipe.New(Fake_BorealWoodChest, TileID.HeavyWorkBench, BorealWoodChest);
+            recipe.New(Fake_CactusChest, TileID.HeavyWorkBench, CactusChest);
+            recipe.New(Fake_Chest, TileID.HeavyWorkBench, Chest);
+            recipe.New(Fake_CorruptionChest, TileID.HeavyWorkBench, CorruptionChest);
+            recipe.New(Fake_CrimsonChest, TileID.HeavyWorkBench, CrimsonChest);
+            recipe.New(Fake_CrystalChest, TileID.HeavyWorkBench, CrystalChest);
+            recipe.New(Fake_DesertChest, TileID.HeavyWorkBench, DesertChest);
+            recipe.New(Fake_DynastyChest, TileID.HeavyWorkBench, DynastyChest);
+            recipe.New(Fake_EbonwoodChest, TileID.HeavyWorkBench, EbonwoodChest);
+            recipe.New(Fake_FleshChest, TileID.HeavyWorkBench, FleshChest);
+            recipe.New(Fake_FrozenChest, TileID.HeavyWorkBench, FrozenChest);
+            recipe.New(Fake_GlassChest, TileID.HeavyWorkBench, GlassChest);
+            recipe.New(Fake_GoldChest, TileID.HeavyWorkBench, GoldChest);
+            recipe.New(Fake_GoldenChest, TileID.HeavyWorkBench, GoldenChest);
+            recipe.New(Fake_GolfChest, TileID.HeavyWorkBench, GolfChest);
+            recipe.New(Fake_GraniteChest, TileID.HeavyWorkBench, GraniteChest);
+            recipe.New(Fake_GreenDungeonChest, TileID.HeavyWorkBench, GreenDungeonChest);
+            recipe.New(Fake_HallowedChest, TileID.HeavyWorkBench, HallowedChest);
+            recipe.New(Fake_HoneyChest, TileID.HeavyWorkBench, HoneyChest);
+            recipe.New(Fake_IceChest, TileID.HeavyWorkBench, IceChest);
+            recipe.New(Fake_IvyChest, TileID.HeavyWorkBench, IvyChest);
+            recipe.New(Fake_JungleChest, TileID.HeavyWorkBench, JungleChest);
+            recipe.New(Fake_LesionChest, TileID.HeavyWorkBench, LesionChest);
+            recipe.New(Fake_LihzahrdChest, TileID.HeavyWorkBench, LihzahrdChest);
+            recipe.New(Fake_LivingWoodChest, TileID.HeavyWorkBench, LivingWoodChest);
+            recipe.New(Fake_MarbleChest, TileID.HeavyWorkBench, MarbleChest);
+            recipe.New(Fake_MartianChest, TileID.HeavyWorkBench, MartianChest);
+            recipe.New(Fake_MeteoriteChest, TileID.HeavyWorkBench, MeteoriteChest);
+            recipe.New(Fake_MushroomChest, TileID.HeavyWorkBench, MushroomChest);
+            recipe.New(Fake_NebulaChest, TileID.HeavyWorkBench, NebulaChest);
+            recipe.New(Fake_ObsidianChest, TileID.HeavyWorkBench, ObsidianChest);
+            recipe.New(Fake_PalmWoodChest, TileID.HeavyWorkBench, PalmWoodChest);
+            recipe.New(Fake_PearlwoodChest, TileID.HeavyWorkBench, PearlwoodChest);
+            recipe.New(Fake_PinkDungeonChest, TileID.HeavyWorkBench, PinkDungeonChest);
+            recipe.New(Fake_PumpkinChest, TileID.HeavyWorkBench, PumpkinChest);
+            recipe.New(Fake_RichMahoganyChest, TileID.HeavyWorkBench, RichMahoganyChest);
+            recipe.New(Fake_DesertChest, TileID.HeavyWorkBench, DesertChest);
+            recipe.New(Fake_ShadewoodChest, TileID.HeavyWorkBench,ShadewoodChest);
+            recipe.New(Fake_ShadowChest, TileID.HeavyWorkBench, ShadowChest);
+            recipe.New(Fake_SkywareChest, TileID.HeavyWorkBench, SkywareChest);
+            recipe.New(Fake_SlimeChest, TileID.HeavyWorkBench, SlimeChest);
+            recipe.New(Fake_SolarChest, TileID.HeavyWorkBench, SolarChest);
+            recipe.New(Fake_SpiderChest, TileID.HeavyWorkBench, SpiderChest);
+            recipe.New(Fake_SpookyChest, TileID.HeavyWorkBench, SpookyChest);
+            recipe.New(Fake_StardustChest, TileID.HeavyWorkBench, StardustChest);
+            recipe.New(Fake_SteampunkChest, TileID.HeavyWorkBench, SteampunkChest);
+            recipe.New(Fake_VortexChest, TileID.HeavyWorkBench, VortexChest);
+            recipe.New(Fake_WaterChest, TileID.HeavyWorkBench, WaterChest);
+            recipe.New(Fake_WebCoveredChest, TileID.HeavyWorkBench, WebCoveredChest);
         }
     }
 }

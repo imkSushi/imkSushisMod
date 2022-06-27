@@ -87,8 +87,9 @@ public partial class RecipeCreator
         {
             if (_recipeText.Count > 0)
             {
+                _recipeText.Add("[/SPOILER]");
                 _recipeText.Add("");
-                _recipeText[_sectionStart] = $"[B][U]{_recipeText[_sectionStart]}[/U][/B] ({_sectionLength} recipes)";
+                _recipeText[_sectionStart] = $"[SPOILER={_recipeText[_sectionStart]} ({_sectionLength} recipes)]";
             }
 
             _recipeText.Add(name);

@@ -14,7 +14,7 @@ public class MeltingRecipes
 
     public static void AddMelterCraftingRecipes(RecipeCreator recipe)
     {
-        recipe.StartNewRecipeSection("Melter Crafting");
+        recipe.StartNewRecipeSection("Melter Crafting Recipes");
         recipe.New(Furnace, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Items.Melter>());
         recipe.New(ItemID.Hellforge, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Items.Hellmelter>());
         recipe.New(ItemID.AdamantiteForge, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Items.AdamantiteMelter>());
@@ -31,7 +31,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Bars");
+        recipe.StartNewRecipeSection("Melting Down Bars Recipes");
         recipe.New(CopperBar, melter, (CopperOre, 2));
         recipe.New(TinBar, melter, (TinOre, 2));
         recipe.New(IronBar, melter, (IronOre, 2));
@@ -65,7 +65,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Staffs");
+        recipe.StartNewRecipeSection("Melting Down Staffs Recipes");
         recipe.New(AmethystStaff, melter, (ItemID.Amethyst, 4));
         recipe.New(AmethystStaff, melter, (CopperBar, 5));
         recipe.New(TopazStaff, melter, (ItemID.Topaz, 4));
@@ -90,7 +90,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Books");
+        recipe.StartNewRecipeSection("Melting Down Books Recipes");
         recipe.New(CursedFlames, melter, (CursedFlame, 10));
         recipe.New(GoldenShower, melter, (Ichor, 10));
         recipe.New(CrystalStorm, melter, (CrystalShard, 10));
@@ -106,7 +106,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Summoning Weapons");
+        recipe.StartNewRecipeSection("Melting Down Summoning Weapons Recipes");
         recipe.New(FlinxStaff, melter, (GoldBar, 10));
         recipe.New(FlinxStaff, melter, (PlatinumBar, 10));
         recipe.New(FlinxStaff, melter, (FlinxFur, 3));
@@ -133,7 +133,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Axes");
+        recipe.StartNewRecipeSection("Melting Down Axes Recipes");
         recipe.New(CopperAxe, melter, (CopperBar, 3));
         recipe.New(TinAxe, melter, (TinBar, 3));
         recipe.New(IronAxe, melter, (IronBar, 4));
@@ -178,7 +178,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Hooks");
+        recipe.StartNewRecipeSection("Melting Down Hooks Recipes");
         recipe.New(AmethystHook, melter, (ItemID.Amethyst, 7));
         recipe.New(TopazHook, melter, (ItemID.Topaz, 7));
         recipe.New(SapphireHook, melter, (ItemID.Sapphire, 7));
@@ -200,7 +200,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Phasesabers & Phaseblades");
+        recipe.StartNewRecipeSection("Melting Down Phasesabers & Phaseblades Recipes");
         recipe.New(BluePhaseblade, melter, (MeteoriteBar, 7));
         recipe.New(BluePhaseblade, melter, (ItemID.Sapphire, 5));
         recipe.New(BluePhasesaber, melter, (MeteoriteBar, 7));
@@ -245,7 +245,7 @@ public class MeltingRecipes
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         var sawmill = TileID.Sawmill;
         
-        recipe.StartNewRecipeSection("Melting Down Bows");
+        recipe.StartNewRecipeSection("Melting Down Bows Recipes");
         recipe.New(WoodenBow, sawmill, (Wood, 5));
         recipe.New(RichMahoganyBow, sawmill, (ItemID.RichMahogany, 5));
         recipe.New(PearlwoodBow, sawmill, (ItemID.Pearlwood, 5));
@@ -282,7 +282,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Swords");
+        recipe.StartNewRecipeSection("Melting Down Swords Recipes");
         recipe.New(WoodenSword, TileID.Sawmill, (Wood, 3));
         recipe.New(RichMahoganySword, TileID.Sawmill, (ItemID.RichMahogany, 3));
         recipe.New(PearlwoodSword, TileID.Sawmill, (ItemID.Pearlwood, 3));
@@ -331,7 +331,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Spears");
+        recipe.StartNewRecipeSection("Melting Down Spears Recipes");
         recipe.New(CobaltNaginata, melter, (CobaltBar, 5));
         recipe.New(PalladiumPike, melter, (PalladiumBar, 6));
         recipe.New(MythrilHalberd, melter, (MythrilBar, 5));
@@ -348,7 +348,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Armor");
+        recipe.StartNewRecipeSection("Melting Down Armor Recipes");
         recipe.New(WoodHelmet, TileID.Sawmill, (Wood, 10));
         recipe.New(WoodBreastplate, TileID.Sawmill, (Wood, 15));
         recipe.New(WoodGreaves, TileID.Sawmill, (Wood, 12));
@@ -594,7 +594,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Hammers");
+        recipe.StartNewRecipeSection("Melting Down Hammers Recipes");
         recipe.New(WoodenHammer, TileID.Sawmill, (Wood, 4));
         recipe.New(RichMahoganyHammer, TileID.Sawmill, (ItemID.RichMahogany, 4));
         recipe.New(PalmWoodHammer, TileID.Sawmill, (ItemID.PalmWood, 4));
@@ -625,7 +625,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Guns");
+        recipe.StartNewRecipeSection("Melting Down Guns Recipes");
         recipe.New(SpaceGun, melter, (MeteoriteBar, 10));
         recipe.New(StarCannon, melter, (MeteoriteBar, 10));
         recipe.New(SuperStarCannon, melter, (MeteoriteBar, 10));
@@ -640,7 +640,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Pickaxes");
+        recipe.StartNewRecipeSection("Melting Down Pickaxes Recipes");
         recipe.New(CactusPickaxe, TileID.Sawmill, (ItemID.Cactus, 7));
         recipe.New(CopperPickaxe, melter, (CopperBar, 4));
         recipe.New(TinPickaxe, melter, (TinBar, 4));
@@ -698,7 +698,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Yoyos");
+        recipe.StartNewRecipeSection("Melting Down Yoyos Recipes");
         recipe.New(CorruptYoyo, melter, (DemoniteBar, 6));
         recipe.New(CrimsonYoyo, melter, (DemoniteBar, 6));
         recipe.New(Chik, melter, (CrystalShard, 7));
@@ -710,7 +710,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Fishing Rods");
+        recipe.StartNewRecipeSection("Melting Down Fishing Rods Recipes");
         recipe.New(ReinforcedFishingPole, melter, (IronBar, 4));
         recipe.New(ReinforcedFishingPole, melter, (LeadBar, 4));
         recipe.New(FisherofSouls, melter, (DemoniteBar, 4));
@@ -723,7 +723,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Flails");
+        recipe.StartNewRecipeSection("Melting Down Flails Recipes");
         recipe.New(TheMeatball, melter, (CrimtaneBar, 5));
         recipe.New(TheMeatball, melter, (TissueSample, 2));
         recipe.New(BallOHurt, melter, (DemoniteBar, 5));
@@ -738,7 +738,7 @@ public class MeltingRecipes
         var hellmelter = TileType<Tiles.Hellmelter>();
         var adamantitemelter = TileType<Tiles.AdamantiteMelter>();
         
-        recipe.StartNewRecipeSection("Melting Down Others");
+        recipe.StartNewRecipeSection("Melting Down Others Recipes");
         recipe.New(CopperWatch, melter, (CopperBar, 5));
         recipe.New(TinWatch, melter, (TinBar, 5));
         recipe.New(SilverWatch, melter, (SilverBar, 5));
