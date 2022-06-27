@@ -8,25 +8,22 @@ using Terraria.ModLoader;
 namespace imkSushisMod;
 
 
+// ReSharper disable once PartialTypeWithSinglePart
 public partial class RecipeCreator
 {
-    private Mod _mod;
     private List<string> _recipeText = new();
     public const bool FORMATRECIPES = false;
     private int _sectionLength = 0;
     private int _totalLength = 0;
     private int _sectionStart = 0;
-    public RecipeCreator(Mod mod)
-    {
-        _mod = mod;
-    }
 
+    // ReSharper disable once UnusedMember.Global
     public void New((int ingredient, int stack, bool group)[] ingredients,
         int[] tiles,
         (int item, int stack) result,
         bool format = FORMATRECIPES)
     {
-        var recipe = _mod.CreateRecipe(result.item, result.stack);
+        var recipe = Recipe.Create(result.item, result.stack);
         foreach (var (ingredient, stack, group) in ingredients)
         {
             if (group)

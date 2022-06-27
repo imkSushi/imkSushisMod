@@ -1,4 +1,6 @@
+using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace imkSushisMod
@@ -16,7 +18,12 @@ namespace imkSushisMod
 			{
 				ItemID.Sets.Deprecated[i] = false;
 			}
-			RecipeManager.AddRecipes(this);
+			RecipeManager.AddRecipes();
+		}
+
+		public override void AddRecipeGroups()
+		{
+			imkSushiRecipeGroups.AddRecipeGroups();
 		}
 	}
 }

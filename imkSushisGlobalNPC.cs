@@ -176,13 +176,6 @@ public class imkSushisGlobalNPC : GlobalNPC
 			nextSlot++;
 		}
 
-		if (type == NPCID.Wizard)
-		{
-			shop.item[nextSlot].SetDefaults(ItemType<BloodOrb>());
-			shop.item[nextSlot].shopCustomPrice = 50000;
-			nextSlot++;
-		}
-
 		if (type == NPCID.Cyborg && NPC.downedMartians)
 		{
 			shop.item[nextSlot].SetDefaults(ItemType<MartianRocket>());
@@ -193,6 +186,13 @@ public class imkSushisGlobalNPC : GlobalNPC
 		if (type == NPCID.WitchDoctor && NPC.downedPlantBoss)
 		{
 			shop.item[nextSlot].SetDefaults(ItemType<MysteriousSeed>());
+			shop.item[nextSlot].shopCustomPrice = 300000;
+			nextSlot++;
+		}
+
+		if (type == NPCID.WitchDoctor && NPC.downedGolemBoss)
+		{
+			shop.item[nextSlot].SetDefaults(ItemID.SolarTablet);
 			shop.item[nextSlot].shopCustomPrice = 300000;
 			nextSlot++;
 		}
