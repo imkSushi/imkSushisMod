@@ -38,6 +38,7 @@ namespace imkSushisMod
             AddMinecartRecipes(recipe);
             AddTrapsRecipes(recipe);
             AddUntrapChestRecipes(recipe);
+            AddCrateDowngradingRecipes(recipe);
             
             recipe.StartNewRecipeSection("");
             
@@ -543,6 +544,24 @@ namespace imkSushisMod
             recipe.New(Fake_VortexChest, TileID.HeavyWorkBench, VortexChest);
             recipe.New(Fake_WaterChest, TileID.HeavyWorkBench, WaterChest);
             recipe.New(Fake_WebCoveredChest, TileID.HeavyWorkBench, WebCoveredChest);
+        }
+
+        public static void AddCrateDowngradingRecipes(RecipeCreator recipe)
+        {
+            recipe.StartNewRecipeSection("Crate Downgrading Recipes");
+            recipe.New(WoodenCrateHard, TinkerersWorkbench, WoodenCrate);
+            recipe.New(IronCrateHard, TinkerersWorkbench, IronCrate);
+            recipe.New(GoldenCrateHard, TinkerersWorkbench, GoldenCrate);
+            recipe.New(JungleFishingCrateHard, TinkerersWorkbench, JungleFishingCrate);
+            recipe.New(FloatingIslandFishingCrateHard, TinkerersWorkbench, FloatingIslandFishingCrate);
+            recipe.New(CorruptFishingCrateHard, TinkerersWorkbench, CorruptFishingCrate);
+            recipe.New(CrimsonFishingCrateHard, TinkerersWorkbench, CrimsonFishingCrate);
+            recipe.New(HallowedFishingCrateHard, TinkerersWorkbench, HallowedFishingCrate);
+            recipe.New(DungeonFishingCrateHard, TinkerersWorkbench, DungeonFishingCrate);
+            recipe.New(FrozenCrateHard, TinkerersWorkbench, FrozenCrate);
+            recipe.New(OasisCrateHard, TinkerersWorkbench, OasisCrate);
+            recipe.New(LavaCrateHard, TinkerersWorkbench, LavaCrate);
+            recipe.New(OceanCrateHard, TinkerersWorkbench, OceanCrate);
         }
     }
 }
