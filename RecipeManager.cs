@@ -39,18 +39,6 @@ namespace imkSushisMod
             AddTrapsRecipes(recipe);
             AddUntrapChestRecipes(recipe);
             AddCrateDowngradingRecipes(recipe);
-            
-            recipe.StartNewRecipeSection("");
-            
-            if (RecipeCreator.FORMATRECIPES)
-            {
-                Console.WriteLine("Recipe file path please:");
-                var path = Console.ReadLine();
-                if (path != "")
-                {
-                    recipe.OutputRecipes(path);
-                }
-            }
         }
 
         public static void AddExchangeRecipes(RecipeCreator recipe)

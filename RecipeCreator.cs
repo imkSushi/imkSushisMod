@@ -11,11 +11,11 @@ namespace imkSushisMod;
 // ReSharper disable once PartialTypeWithSinglePart
 public partial class RecipeCreator
 {
-    private List<string> _recipeText = new();
+    private static List<string> _recipeText = new();
     public const bool FORMATRECIPES = false;
-    private int _sectionLength = 0;
-    private int _totalLength = 0;
-    private int _sectionStart = 0;
+    private static int _sectionLength = 0;
+    private static int _totalLength = 0;
+    private static int _sectionStart = 0;
 
     // ReSharper disable once UnusedMember.Global
     public void New((int ingredient, int stack, bool group)[] ingredients,
@@ -189,7 +189,7 @@ public partial class RecipeCreator
         }
     }
 
-    public void OutputRecipes(string path)
+    public static void OutputRecipes(string path)
     {
         if (FORMATRECIPES)
         {

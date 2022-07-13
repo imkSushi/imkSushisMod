@@ -1,3 +1,4 @@
+using System;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -24,6 +25,23 @@ namespace imkSushisMod
 		public override void AddRecipeGroups()
 		{
 			imkSushiRecipeGroups.AddRecipeGroups();
+		}
+
+		public override void PostAddRecipes()
+		{
+			var recipe = new RecipeCreator();
+			
+			recipe.StartNewRecipeSection("");
+            
+			if (RecipeCreator.FORMATRECIPES)
+			{
+				Console.WriteLine("Recipe file path please:");
+				var path = Console.ReadLine();
+				if (path != "")
+				{
+					RecipeCreator.OutputRecipes(path);
+				}
+			}
 		}
 	}
 }
