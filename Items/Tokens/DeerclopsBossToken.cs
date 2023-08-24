@@ -22,6 +22,7 @@ public class DeerclopsBossToken : Token
         recipe.From((ChesterPetItem, 2));
         recipe.From((Eyebrella, 2));
         recipe.From((DontStarveShaderItem, 2));
+        recipe.From(DizzyHat);
         
         recipe.From((PewMaticHorn, 2));
         recipe.From((WeatherPain, 2));
@@ -35,6 +36,7 @@ public class DeerclopsBossToken : Token
         recipe.To(ChesterPetItem);
         recipe.To(Eyebrella);
         recipe.To(DontStarveShaderItem);
+        recipe.To(DizzyHat);
         
         recipe.To(PewMaticHorn);
         recipe.To(WeatherPain);
