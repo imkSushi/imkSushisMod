@@ -1,200 +1,98 @@
 ﻿using imkSushisMod.Items;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
 namespace imkSushisMod;
 
-public class imkSushisGlobalNPC : GlobalNPC
+public class imkSushisGlobalNPC:GlobalNPC
 {
-    public void TeleportNpcToPlayer(NPC npc, Player player)
-    {
-        npc.position = player.position;
-    }
-
-	public override void SetupShop(int type, Chest shop, ref int nextSlot)
+	public void TeleportNpcToPlayer(NPC npc, Player player)
 	{
-		if (type == NPCID.Wizard)
+		npc.position = player.position;
+	}
+
+	private static void AddItemWithCustomPrice(NPCShop shop, int type, int price, params Condition[] conditions)
+	{
+		var entry = new NPCShop.Entry(type, conditions);
+		entry.Item.shopCustomPrice = price;
+		shop.Add(entry);
+	}
+	private static Condition DownedPumpkinMoonBossAny = new Condition("imkSushisMod.Conditions.DownedPumpkinMoonBossAny", () => NPC.downedHalloweenTree || NPC.downedHalloweenKing);
+	private static Condition DownedFrostMoonBossAny = new Condition("imkSushisMod.Conditions.DownedFrostMoonBossAny", () => NPC.downedChristmasIceQueen || NPC.downedChristmasTree || NPC.downedChristmasSantank);
+
+	public override void ModifyShop(NPCShop shop)
+	{
+		if(shop.NpcType == NPCID.Wizard)
 		{
-			shop.item[nextSlot].SetDefaults(ItemType<LesserTimeSphere>());
-			nextSlot++;
-			if (NPC.downedMechBossAny)
-			{
-				shop.item[nextSlot].SetDefaults(ItemType<TimeSphere>());
-				nextSlot++;
-			}
-			if (NPC.downedPlantBoss)
-			{
-				shop.item[nextSlot].SetDefaults(ItemType<GreaterTimeSphere>());
-				nextSlot++;
-			}
-			if (NPC.downedMoonlord)
-			{
-				shop.item[nextSlot].SetDefaults(ItemType<SuperTimeSphere>());
-				nextSlot++;
-			}
-		}
-		if (type == NPCID.Mechanic)
-		{
-			shop.item[nextSlot].SetDefaults(ItemID.Teleporter);
-				shop.item[nextSlot].shopCustomPrice = 50000;
-			nextSlot++;
-		}
-		if (type == NPCID.Dryad && NPC.downedBoss1)
-		{
-			shop.item[nextSlot].SetDefaults(ItemID.SuspiciousLookingEye);
-			shop.item[nextSlot].shopCustomPrice = 60000;
-			nextSlot++;
+			shop.Add<LesserTimeSphere>(Condition.Hardmode);
+			shop.Add<TimeSphere>(Condition.DownedMechBossAny);
+			shop.Add<GreaterTimeSphere>(Condition.DownedPlantera);
+			shop.Add<SuperTimeSphere>(Condition.DownedMoonLord);
 		}
 
-		if (type == NPCID.Dryad && NPC.downedBoss2)
+		//Boss Summons
+		if(shop.NpcType == NPCID.Dryad)
 		{
-			shop.item[nextSlot].SetDefaults(ItemID.WormFood);
-			shop.item[nextSlot].shopCustomPrice = 30000;
-			nextSlot++;
-			shop.item[nextSlot].SetDefaults(ItemID.BloodySpine);
-			shop.item[nextSlot].shopCustomPrice = 30000;
-			nextSlot++;
+			AddItemWithCustomPrice(shop, ItemID.SuspiciousLookingEye, 60000, Condition.DownedEyeOfCthulhu);
+			AddItemWithCustomPrice(shop, ItemID.WormFood, 30000, Condition.DownedEowOrBoc);
+			AddItemWithCustomPrice(shop, ItemID.BloodySpine, 30000, Condition.DownedEowOrBoc);
+			AddItemWithCustomPrice(shop, ItemID.SlimeCrown, 20000, Condition.DownedKingSlime);
+			AddItemWithCustomPrice(shop, ItemID.Abeemination, 200000, Condition.DownedQueenBee);
+		}
+		if(shop.NpcType == NPCID.Steampunker)
+		{
+			AddItemWithCustomPrice(shop, ItemID.MechanicalWorm, 240000, Condition.DownedDestroyer);
+			AddItemWithCustomPrice(shop, ItemID.MechanicalEye, 240000, Condition.DownedTwins);
+			AddItemWithCustomPrice(shop, ItemID.MechanicalSkull, 240000, Condition.DownedSkeletronPrime);
+		}
+		if(shop.NpcType == NPCID.WitchDoctor)
+		{
+			AddItemWithCustomPrice(shop, ItemType<MysteriousSeed>(), 300000, Condition.DownedPlantera);
+		}
+		if(shop.NpcType == NPCID.Cyborg)
+		{
+			AddItemWithCustomPrice(shop, ItemID.LihzahrdPowerCell, 300000, Condition.DownedGolem);
+		}
+		if(shop.NpcType == NPCID.Wizard)
+		{
+			AddItemWithCustomPrice(shop, ItemID.TruffleWorm, 100000, Condition.DownedDukeFishron);
+			AddItemWithCustomPrice(shop, ItemID.CelestialSigil, 200000, Condition.DownedMoonLord);
 		}
 
-		if (type == NPCID.Dryad && NPC.downedSlimeKing)
+		//Moons
+		if(shop.NpcType == NPCID.Wizard)
 		{
-			shop.item[nextSlot].SetDefaults(ItemID.SlimeCrown);
-			shop.item[nextSlot].shopCustomPrice = 20000;
-			nextSlot++;
+			//Pumpkin Moon
+			AddItemWithCustomPrice(shop, ItemID.PumpkinMoonMedallion, 200000, DownedPumpkinMoonBossAny);
+			AddItemWithCustomPrice(shop, ItemType<FieryStick>(), 20000, Condition.DownedMourningWood);
+			AddItemWithCustomPrice(shop, ItemType<PumpkingsCrown>(), 100000, Condition.DownedPumpking);
+
+			//Frost Moon
+			AddItemWithCustomPrice(shop, ItemID.NaughtyPresent, 200000, DownedFrostMoonBossAny);
+			AddItemWithCustomPrice(shop, ItemType<Snowflake>(), 20000, Condition.DownedIceQueen);
+			AddItemWithCustomPrice(shop, ItemType<IcyBranch>(), 20000, Condition.DownedEverscream);
+			AddItemWithCustomPrice(shop, ItemType<ToyTank>(), 20000, Condition.DownedSantaNK1);
 		}
 
-		if (type == NPCID.Dryad && NPC.downedQueenBee)
+		//Invasions
+		if(shop.NpcType == NPCID.GoblinTinkerer)
 		{
-			shop.item[nextSlot].SetDefaults(ItemID.Abeemination);
-			shop.item[nextSlot].shopCustomPrice = 200000;
-			nextSlot++;
+			AddItemWithCustomPrice(shop, ItemID.GoblinBattleStandard, 100000, Condition.DownedGoblinArmy);
 		}
-
-		if (type == NPCID.Steampunker && NPC.downedMechBoss1)
+		if(shop.NpcType == NPCID.PirateCaptain)
 		{
-			shop.item[nextSlot].SetDefaults(ItemID.MechanicalWorm);
-			shop.item[nextSlot].shopCustomPrice = 240000;
-			nextSlot++;
+			AddItemWithCustomPrice(shop, ItemID.PirateMap, 200000, Condition.DownedPirates);
 		}
-
-		if (type == NPCID.Steampunker && NPC.downedMechBoss2)
+		if(shop.NpcType == NPCID.WitchDoctor)
 		{
-			shop.item[nextSlot].SetDefaults(ItemID.MechanicalEye);
-			shop.item[nextSlot].shopCustomPrice = 240000;
-			nextSlot++;
+			AddItemWithCustomPrice(shop, ItemID.SolarTablet, 300000, Condition.DownedGolem);
 		}
-
-		if (type == NPCID.Steampunker && NPC.downedMechBoss3)
+		if(shop.NpcType == NPCID.Cyborg)
 		{
-			shop.item[nextSlot].SetDefaults(ItemID.MechanicalSkull);
-			shop.item[nextSlot].shopCustomPrice = 240000;
-			nextSlot++;
-		}
-
-		if (type == NPCID.Cyborg && NPC.downedGolemBoss)
-		{
-			shop.item[nextSlot].SetDefaults(ItemID.LihzahrdPowerCell);
-			shop.item[nextSlot].shopCustomPrice = 300000;
-			nextSlot++;
-		}
-
-		if (type == NPCID.Wizard && NPC.downedMoonlord)
-		{
-			shop.item[nextSlot].SetDefaults(ItemID.CelestialSigil);
-			shop.item[nextSlot].shopCustomPrice = 200000;
-			nextSlot++;
-		}
-		if (type == NPCID.Wizard && (NPC.downedHalloweenTree || NPC.downedHalloweenKing))
-		{
-			shop.item[nextSlot].SetDefaults(ItemID.PumpkinMoonMedallion);
-			shop.item[nextSlot].shopCustomPrice = 200000;
-			nextSlot++;
-				
-			if (NPC.downedHalloweenTree)
-			{
-				shop.item[nextSlot].SetDefaults(ItemType<FieryStick>());
-				shop.item[nextSlot].shopCustomPrice = 20000;
-				nextSlot++;
-			}
-				
-			if (NPC.downedHalloweenKing)
-			{
-				shop.item[nextSlot].SetDefaults(ItemType<PumpkingsCrown>());
-				shop.item[nextSlot].shopCustomPrice = 100000;
-				nextSlot++;
-			}
-		}
-
-		if (type == NPCID.Wizard && (NPC.downedChristmasIceQueen || NPC.downedChristmasTree || NPC.downedChristmasSantank))
-		{
-			shop.item[nextSlot].SetDefaults(ItemID.NaughtyPresent);
-			shop.item[nextSlot].shopCustomPrice = 200000;
-			nextSlot++;
-
-			if (NPC.downedChristmasIceQueen)
-			{
-				shop.item[nextSlot].SetDefaults(ItemType<Snowflake>());
-				shop.item[nextSlot].shopCustomPrice = 20000;
-				nextSlot++;
-			}
-				
-			if (NPC.downedChristmasTree)
-			{
-				shop.item[nextSlot].SetDefaults(ItemType<IcyBranch>());
-				shop.item[nextSlot].shopCustomPrice = 20000;
-				nextSlot++;
-			}
-				
-			if (NPC.downedChristmasSantank)
-			{
-				shop.item[nextSlot].SetDefaults(ItemType<ToyTank>());
-				shop.item[nextSlot].shopCustomPrice = 20000;
-				nextSlot++;
-			}
-		}
-
-		if (type == NPCID.Wizard && NPC.downedFishron)
-		{
-			shop.item[nextSlot].SetDefaults(ItemID.TruffleWorm);
-			shop.item[nextSlot].shopCustomPrice = 100000;
-			nextSlot++;
-		}
-
-		if (type == NPCID.GoblinTinkerer)
-		{
-			shop.item[nextSlot].SetDefaults(ItemID.GoblinBattleStandard);
-			shop.item[nextSlot].shopCustomPrice = 100000;
-			nextSlot++;
-		}
-
-		if (type == NPCID.PirateCaptain)
-		{
-			shop.item[nextSlot].SetDefaults(ItemID.PirateMap);
-			shop.item[nextSlot].shopCustomPrice = 200000;
-			nextSlot++;
-		}
-
-		if (type == NPCID.Cyborg && NPC.downedMartians)
-		{
-			shop.item[nextSlot].SetDefaults(ItemType<MartianRocket>());
-			shop.item[nextSlot].shopCustomPrice = 200000;
-			nextSlot++;
-		}
-
-		if (type == NPCID.WitchDoctor && NPC.downedPlantBoss)
-		{
-			shop.item[nextSlot].SetDefaults(ItemType<MysteriousSeed>());
-			shop.item[nextSlot].shopCustomPrice = 300000;
-			nextSlot++;
-		}
-
-		if (type == NPCID.WitchDoctor && NPC.downedGolemBoss)
-		{
-			shop.item[nextSlot].SetDefaults(ItemID.SolarTablet);
-			shop.item[nextSlot].shopCustomPrice = 300000;
-			nextSlot++;
+			AddItemWithCustomPrice(shop, ItemType<MartianRocket>(), 200000, Condition.DownedMartians);
 		}
 	}
 }

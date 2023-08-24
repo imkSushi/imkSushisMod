@@ -23,12 +23,6 @@ namespace imkSushisMod.Items
 			Item.value = 100000;
 		}
 
-	    public override void SetStaticDefaults()
-	    {
-	      DisplayName.SetDefault("Lesser Time Sphere");
-	      Tooltip.SetDefault("Moves time forward by two Terrarian hours");
-	    }
-
 		public override bool CanUseItem(Player player)
 		{
 			return true;

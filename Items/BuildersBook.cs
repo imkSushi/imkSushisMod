@@ -20,12 +20,6 @@ namespace imkSushisMod.Items
 			Item.accessory = true;
 		}
 
-	    public override void SetStaticDefaults()
-	    {
-	      DisplayName.SetDefault("Builder's Book");
-	      Tooltip.SetDefault("Yay! Lets play Building Blocks!\nThis item doesn't work properly - it is unobtainable");
-	    }
-
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.tileSpeed = 3f;

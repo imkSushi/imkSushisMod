@@ -22,12 +22,6 @@ namespace imkSushisMod.Items
 			Item.maxStack = 30;
 		}
 
-	    public override void SetStaticDefaults()
-	    {
-	      DisplayName.SetDefault("Mysterious Seed");
-	      Tooltip.SetDefault("The beginning of the Plant Era");
-	    }
-
 		public override bool CanUseItem(Player player)
 		{
 			return NPC.FindFirstNPC(NPCID.Plantera) <= -1;

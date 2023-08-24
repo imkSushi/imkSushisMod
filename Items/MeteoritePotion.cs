@@ -24,12 +24,6 @@ namespace imkSushisMod.Items
 
 		}
 
-	    public override void SetStaticDefaults()
-	    {
-	      DisplayName.SetDefault("Meteorite Potion");
-	      Tooltip.SetDefault("So that's what happened to the dinosaurs...");
-	    }
-
 		public override bool CanUseItem(Player player)
 		{
 			return true;

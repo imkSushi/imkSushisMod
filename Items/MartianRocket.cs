@@ -22,12 +22,6 @@ namespace imkSushisMod.Items
 			Item.maxStack = 30;
 		}
 
-	    public override void SetStaticDefaults()
-	    {
-	      DisplayName.SetDefault("Martian Rocket");
-	      Tooltip.SetDefault("I thought it took longer than a tick to get to Mars?");
-	    }
-
 		public override bool CanUseItem(Player player)
 		{
 			return Main.CanStartInvasion(4,true);

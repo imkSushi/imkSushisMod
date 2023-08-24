@@ -8,9 +8,6 @@ public class AdamantiteMelter : ModItem
 {
     public override void SetStaticDefaults()
     {
-        DisplayName.SetDefault("Adamantite Melter");
-        Tooltip.SetDefault("Used for melting down stuff back into bars and ores");
-
         CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
     }
 

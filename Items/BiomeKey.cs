@@ -12,11 +12,5 @@ namespace imkSushisMod.Items
 			Item.rare = ItemRarityID.Blue;
 			Item.value = 50000;
 		}
-
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Biome Key");
-			Tooltip.SetDefault("Generic Corn Flakes\nTransfer from one biome key to another through this");
-		}
 	}
 }

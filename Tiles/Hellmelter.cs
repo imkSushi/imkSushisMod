@@ -26,9 +26,7 @@ public class Hellmelter : ModTile
         TileObjectData.addTile(Type);
 
         // Etc
-        ModTranslation name = CreateMapEntryName();
-        name.SetDefault("Hellmelter");
-        AddMapEntry(new Color(238, 85, 70), name);
+        AddMapEntry(new Color(238, 85, 70), CreateMapEntryName());
     }
 
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

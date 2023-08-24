@@ -23,12 +23,6 @@ namespace imkSushisMod.Items
 			Item.maxStack = 30;
 		}
 
-	    public override void SetStaticDefaults()
-	    {
-	      DisplayName.SetDefault("Frostflake");
-	      Tooltip.SetDefault("Wait, but it's only Wave 1...\nThis isn't a snowflake, because it has the wrong number of sides...");
-	    }
-
 		public override bool CanUseItem(Player player)
 		{
 			return Main.snowMoon;

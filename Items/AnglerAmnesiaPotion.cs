@@ -19,12 +19,6 @@ namespace imkSushisMod.Items
 			Item.UseSound = SoundID.Item3;
 		}
 
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Angler Amnesia Potion");
-			Tooltip.SetDefault("Sorry, what was I going to write here?");
-		}
-
 		public override bool CanUseItem(Player player)
 		{
 			return NPC.AnyNPCs(NPCID.Angler);

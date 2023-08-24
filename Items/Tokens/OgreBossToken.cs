@@ -15,12 +15,6 @@ public class OgreBossToken : Token
         Item.rare = ItemRarityID.Blue;
     }
 
-    public override void SetStaticDefaults()
-    {
-        DisplayName.SetDefault("Ogre Loot Swapping Token");
-        Tooltip.SetDefault("Lets you swap miniboss loot");
-    }
-
     public override void AddRecipes()
     {
         var recipe = new TokenRecipeCreator(ModContent.ItemType<OgreBossToken>());

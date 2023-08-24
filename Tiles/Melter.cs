@@ -24,9 +24,7 @@ public class Melter : ModTile
         TileObjectData.addTile(Type);
 
         // Etc
-        ModTranslation name = CreateMapEntryName();
-        name.SetDefault("Melter");
-        AddMapEntry(new Color(144, 148, 144), name);
+        AddMapEntry(new Color(144, 148, 144), CreateMapEntryName());
     }
 
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

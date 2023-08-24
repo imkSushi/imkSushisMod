@@ -23,12 +23,6 @@ namespace imkSushisMod.Items
 			Item.maxStack = 30;
 		}
 
-	    public override void SetStaticDefaults()
-	    {
-	      DisplayName.SetDefault("Robed Pumpkin");
-	      Tooltip.SetDefault("Wait, but it's only Wave 1...\nAnd maybe a pumpkin as well");
-	    }
-
 		public override bool CanUseItem(Player player)
 		{
 			return Main.pumpkinMoon;

@@ -26,9 +26,7 @@ public class AdamantiteMelter : ModTile
         TileObjectData.addTile(Type);
 
         // Etc
-        ModTranslation name = CreateMapEntryName();
-        name.SetDefault("Adamantite Melter");
-        AddMapEntry(new Color(231, 53, 56), name);
+        AddMapEntry(new Color(231, 53, 56), CreateMapEntryName());
     }
 
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

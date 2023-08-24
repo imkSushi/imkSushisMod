@@ -22,12 +22,6 @@ namespace imkSushisMod.Items
 			Item.maxStack = 30;
 		}
 
-    public override void SetStaticDefaults()
-    {
-      DisplayName.SetDefault("Icy Branch");
-      Tooltip.SetDefault("Wait, but it's only Wave 1...");
-    }
-
 		public override bool CanUseItem(Player player)
 		{
 			return Main.snowMoon;

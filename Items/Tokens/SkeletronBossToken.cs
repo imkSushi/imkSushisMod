@@ -15,12 +15,6 @@ public class SkeletronBossToken : Token
         Item.rare = ItemRarityID.Blue;
     }
 
-    public override void SetStaticDefaults()
-    {
-        DisplayName.SetDefault("Skeletron Loot Swapping Token");
-        Tooltip.SetDefault("Lets you swap boss loot");
-    }
-
     public override void AddRecipes()
     {
         var recipe = new TokenRecipeCreator(ModContent.ItemType<SkeletronBossToken>());
