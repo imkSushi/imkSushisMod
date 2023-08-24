@@ -22,14 +22,9 @@ public abstract class NPCSummoningPotion : ModItem
         Item.maxStack = 30;
         Item.UseSound = SoundID.Item3;
     }
-
-
-    public override void SetStaticDefaults()
-    {
-        var npcName = Lang.GetNPCName(NpcId);
-        DisplayName.SetDefault($"{npcName} Summoning Potion");
-        Tooltip.SetDefault($"Summons the {npcName}");
-    }
+    
+    public override LocalizedText DisplayName => Language.GetText(Mod.GetLocalizationKey("Common.NPCSummoningPotion.DisplayName")).WithFormatArgs(Lang.GetNPCName(NpcId));
+    public override LocalizedText Tooltip => Language.GetText(Mod.GetLocalizationKey("Common.NPCSummoningPotion.Tooltip")).WithFormatArgs(Lang.GetNPCName(NpcId));
 
     public override bool CanUseItem(Player player)
     {

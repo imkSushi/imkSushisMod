@@ -352,7 +352,7 @@ namespace imkSushisMod
             recipe.New((StoneBlock, 100), SoulofLight, TileID.HeavyWorkBench, QueenStatue);
             recipe.New((StoneBlock, 100), (Bomb, 25), TileID.HeavyWorkBench, BombStatue);
             recipe.New((StoneBlock, 100), LifeCrystal, TileID.HeavyWorkBench, HeartStatue);
-            recipe.New((StoneBlock, 100), ManaCrystal, TileID.HeavyWorkBench, StarStatue);
+            recipe.New((StoneBlock, 100), ItemID.ManaCrystal, TileID.HeavyWorkBench, StarStatue);
         }
 
         public static void AddMinecartRecipes(RecipeCreator recipe)
@@ -400,7 +400,7 @@ namespace imkSushisMod
         {
             recipe.StartNewRecipeSection("Gold Chest Loot Recipes");
             recipe.New(ItemID.LifeCrystal, ItemID.Chain, TinkerersWorkbench, BandofRegeneration);
-            recipe.NewG((RecipeGroupID.IronBar, 5), ManaCrystal, TinkerersWorkbench, MagicMirror);
+            recipe.NewG((RecipeGroupID.IronBar, 5), ItemID.ManaCrystal, TinkerersWorkbench, MagicMirror);
             recipe.New(ItemID.Bottle, (ItemID.Cloud, 25), TinkerersWorkbench, CloudinaBottle);
             recipe.New(Feather, (Silk, 10), TinkerersWorkbench, HermesBoots);
             recipe.NewG((RecipeGroupID.IronBar, 3), (ItemID.Chain, 2), TinkerersWorkbench, ShoeSpikes);
@@ -465,8 +465,7 @@ namespace imkSushisMod
         {
             recipe.StartNewRecipeSection("Traps Recipes");
             recipe.New((StoneBlock, 20), (WoodenArrow, 100), (Wire, 20), TileID.MythrilAnvil, DartTrap);
-            recipe.New((StoneBlock, 20), (LavaBucket, 3), (Wire, 20), (PressurePlates, 2), TileID.MythrilAnvil,
-                ItemID.GeyserTrap);
+            recipe.New((StoneBlock, 20), (LavaBucket, 3), (Wire, 20), (PressurePlates, 2), TileID.MythrilAnvil, ItemID.GeyserTrap);
             recipe.New((DartTrap, 3), (ItemID.LihzahrdBrick, 5), (Wire, 20), EndlessQuiver, TileID.MythrilAnvil, SuperDartTrap);
             recipe.New(SuperDartTrap, (SpikyBall, 100), TileID.MythrilAnvil, SpikyBallTrap);
             recipe.New(SuperDartTrap, (Spear, 3), TileID.MythrilAnvil, SpearTrap);

@@ -15,12 +15,6 @@ public class PirateInvasionToken : Token
         Item.rare = ItemRarityID.Blue;
     }
 
-    public override void SetStaticDefaults()
-    {
-        DisplayName.SetDefault("Pirate Invasion Loot Swapping Token");
-        Tooltip.SetDefault("Lets you swap invasion loot");
-    }
-
     public override void AddRecipes()
     {
         var recipe = new TokenRecipeCreator(ModContent.ItemType<PirateInvasionToken>());

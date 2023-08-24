@@ -15,12 +15,6 @@ public class MourningWoodBossToken : Token
         Item.rare = ItemRarityID.Blue;
     }
 
-    public override void SetStaticDefaults()
-    {
-        DisplayName.SetDefault("Mourning Wood Loot Swapping Token");
-        Tooltip.SetDefault("Lets you swap miniboss loot");
-    }
-
     public override void AddRecipes()
     {
         var recipe = new TokenRecipeCreator(ModContent.ItemType<MourningWoodBossToken>());

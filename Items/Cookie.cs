@@ -27,12 +27,6 @@ namespace imkSushisMod.Items
 			Item.value = 2000;
 		}
 
-	    public override void SetStaticDefaults()
-	    {
-	      DisplayName.SetDefault("Cookie");
-	      Tooltip.SetDefault("Have a cookie\nThese are Happy Days");
-	    }
-
 		public override bool CanUseItem(Player player)
 		{
 			return true;
@@ -43,12 +37,11 @@ namespace imkSushisMod.Items
 {
 	public class ImkSushisModGlobalNpcForCookies : GlobalNPC
 	{
-		public override void SetupShop(int type, Chest shop, ref int nextSlot)
+		public override void ModifyShop(NPCShop shop)
 		{
-			if (type == NPCID.Merchant)
+			if (shop.NpcType == NPCID.Merchant)
 			{
-				shop.item[nextSlot].SetDefaults(ModContent.ItemType<Cookie>());
-				nextSlot++;
+				shop.Add<Cookie>();
 			}
 		}
 	}

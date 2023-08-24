@@ -17,13 +17,6 @@ namespace imkSushisMod.Items
 			Item.accessory = true;
 		}
 
-    public override void SetStaticDefaults()
-    {
-      DisplayName.SetDefault("Healing Flower");
-      Tooltip.SetDefault("This automatically Quick Heals when neccessary");
-    }
-
-
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.GetModPlayer<imkSushisPlayer>().HighestHealth();

@@ -758,6 +758,6 @@ public class MeltingRecipes
         recipe.New(HallowJoustingLance, adamantitemelter, (HallowedBar, 6));
         recipe.New(DayBreak, TileID.LunarCraftingStation, (FragmentSolar, 9));
         recipe.New(SolarEruption, TileID.LunarCraftingStation, (FragmentSolar, 9));
-        recipe.New(ManaCrystal, TileID.Hellforge, (FallenStar, 4));
+        recipe.New(ItemID.ManaCrystal, TileID.Hellforge, (FallenStar, 4));
     }
 }

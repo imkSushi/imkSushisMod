@@ -15,12 +15,6 @@ public class DeerclopsBossToken : Token
         Item.rare = ItemRarityID.Blue;
     }
 
-    public override void SetStaticDefaults()
-    {
-        DisplayName.SetDefault("Deerclops Loot Swapping Token");
-        Tooltip.SetDefault("Lets you swap boss loot");
-    }
-
     public override void AddRecipes()
     {
         var recipe = new TokenRecipeCreator(ModContent.ItemType<DeerclopsBossToken>());
@@ -28,6 +22,7 @@ public class DeerclopsBossToken : Token
         recipe.From((ChesterPetItem, 2));
         recipe.From((Eyebrella, 2));
         recipe.From((DontStarveShaderItem, 2));
+        recipe.From(DizzyHat);
         
         recipe.From((PewMaticHorn, 2));
         recipe.From((WeatherPain, 2));
@@ -41,6 +36,7 @@ public class DeerclopsBossToken : Token
         recipe.To(ChesterPetItem);
         recipe.To(Eyebrella);
         recipe.To(DontStarveShaderItem);
+        recipe.To(DizzyHat);
         
         recipe.To(PewMaticHorn);
         recipe.To(WeatherPain);

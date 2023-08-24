@@ -23,12 +23,6 @@ namespace imkSushisMod.Items
 
 		}
 
-	    public override void SetStaticDefaults()
-	    {
-	      DisplayName.SetDefault("Resurrection Potion");
-	      Tooltip.SetDefault("Teleports you to your last death point.");
-	    }
-
 		public override bool CanUseItem(Player player)
 		{
 			return player.showLastDeath;

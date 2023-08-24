@@ -17,13 +17,6 @@ namespace imkSushisMod.Items
 			Item.accessory = true;
 		}
 
-	    public override void SetStaticDefaults()
-	    {
-	      DisplayName.SetDefault("Feeder Flower");
-	      Tooltip.SetDefault("Does what both the Mana and Healing Flower do");
-	    }
-
-
 		public override void UpdateAccessory(Player player, bool hideVisual)
 		{
 			player.GetModPlayer<imkSushisPlayer>().HighestHealth();

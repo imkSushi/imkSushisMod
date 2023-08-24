@@ -26,9 +26,7 @@ public class TitaniumMelter : ModTile
         TileObjectData.addTile(Type);
 
         // Etc
-        ModTranslation name = CreateMapEntryName();
-        name.SetDefault("Titanium Melter");
-        AddMapEntry(new Color(192, 189, 221), name);
+        AddMapEntry(new Color(192, 189, 221), CreateMapEntryName());
     }
 
     public override void ModifyLight(int i, int j, ref float r, ref float g, ref float b)

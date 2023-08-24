@@ -8,9 +8,6 @@ public class Hellmelter : ModItem
 {
     public override void SetStaticDefaults()
     {
-        DisplayName.SetDefault("Hellmelter");
-        Tooltip.SetDefault("Used for melting down stuff back into bars and ores");
-
         CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
     }
 

@@ -17,13 +17,6 @@ namespace imkSushisMod.Items
 			Item.maxStack = 30;
 		}
 
-
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Base Summoning Potion");
-			Tooltip.SetDefault("Genie not included\nUsed to make other NPC summoning potions");
-		}
-
 		public override bool CanUseItem(Player player)
 		{
 			return false;

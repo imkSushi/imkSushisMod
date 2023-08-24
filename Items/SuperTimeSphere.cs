@@ -23,12 +23,6 @@ namespace imkSushisMod.Items
 			Item.value = 100000;
 		}
 
-	    public override void SetStaticDefaults()
-	    {
-	      DisplayName.SetDefault("Super Time Sphere");
-	      Tooltip.SetDefault("Moves time forward by twenty Terrarian hours");
-	    }
-
 		public override bool CanUseItem(Player player)
 		{
 			return true;
