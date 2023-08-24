@@ -1,6 +1,6 @@
 The One, The Only, The Ultimate!
 
-Now updated to tModLoader 1.4!
+Now updated to tModLoader 1.4.4!
 
 1052 Recipes (not a typo, actually is over a thousand recipes)!
 
@@ -11,5 +11,6 @@ Now with more stuff! More than just recipes.
 More stuff!
 
 A great thanks to Blockaroz for sprites, and multiplayer testing.
+Another great thanks to Rartrin for updating the mod to 1.4.4.
 
 Please give feedback on the mod, if you find anything unbalanced, post it on the forum page. Thanks!

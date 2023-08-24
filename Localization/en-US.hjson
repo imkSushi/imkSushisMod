@@ -1,36 +1,29 @@
-Mods:
-{
-	imkSushisMod:
-	{
-		Common:
-		{
-			NPCSummoningPotion:
-			{
+Mods: {
+	imkSushisMod: {
+		Common: {
+			NPCSummoningPotion: {
 				DisplayName: "{0} Summoning Potion"
-				Tooltip: "Summons the {0}"
+				Tooltip: Summons the {0}
 			}
 		}
 
-		Conditions:
-		{
+		Conditions: {
 			DownedPumpkinMoonBossAny: After defeating Mourning Wood or Pumpking
 			DownedFrostMoonBossAny: After defeating Everscream, Santa-NK1, or Ice Queen
 		}
 
-		Items:
-		{
-			AdamantiteMelter:
-			{
+		Items: {
+			AdamantiteMelter: {
 				DisplayName: Adamantite Melter
 				Tooltip: Used for melting down stuff back into bars and ores
 			}
-			AnglerAmnesiaPotion:
-			{
+
+			AnglerAmnesiaPotion: {
 				DisplayName: Angler Amnesia Potion
 				Tooltip: Sorry, what was I going to write here?
 			}
-			BaseSummoningPotion:
-			{
+
+			BaseSummoningPotion: {
 				DisplayName: Base Summoning Potion
 				Tooltip:
 					'''
@@ -38,8 +31,8 @@ Mods:
 					Used to make other NPC summoning potions
 					'''
 			}
-			BiomeKey:
-			{
+
+			BiomeKey: {
 				DisplayName: Biome Key
 				Tooltip:
 					'''
@@ -47,8 +40,8 @@ Mods:
 					Transfer from one biome key to another through this
 					'''
 			}
-			BuildersBook:
-			{
+
+			BuildersBook: {
 				DisplayName: Builder's Book
 				Tooltip:
 					'''
@@ -56,72 +49,73 @@ Mods:
 					This item doesn't work properly - it is unobtainable
 					'''
 			}
-			Cookie:
-			{
+
+			Cookie: {
 				DisplayName: Cookie
 				ToolTip:
 					'''
 					Have a cookie
 					These are Happy Days
 					'''
+				Tooltip: ""
 			}
-			FeederFlower:
-			{
+
+			FeederFlower: {
 				DisplayName: Feeder Flower
 				Tooltip: Does what both the Mana and Healing Flower do
 			}
-			FieryStick:
-			{
+
+			FieryStick: {
 				DisplayName: Fiery Stick
 				Tooltip: Wait, but it's only Wave 1...
 			}
-			GreaterTimeSphere:
-			{
+
+			GreaterTimeSphere: {
 				DisplayName: Greater Time Sphere
 				Tooltip: Moves time forward by twelve Terrarian hours
 			}
-			HealingFlower:
-			{
+
+			HealingFlower: {
 				DisplayName: Healing Flower
 				Tooltip: This automatically Quick Heals when neccessary
 			}
-			Hellmelter:
-			{
+
+			Hellmelter: {
 				DisplayName: Hellmelter
 				Tooltip: Used for melting down stuff back into bars and ores
 			}
-			IcyBranch:
-			{
+
+			IcyBranch: {
 				DisplayName: Icy Branch
 				Tooltip: Wait, but it's only Wave 1...
 			}
-			LesserTimeSphere:
-			{
+
+			LesserTimeSphere: {
 				DisplayName: Lesser Time Sphere
 				Tooltip: Moves time forward by two Terrarian hours
 			}
-			MartianRocket:
-			{
+
+			MartianRocket: {
 				DisplayName: Martian Rocket
 				Tooltip: I thought it took longer than a tick to get to Mars?
 			}
-			Melter:
-			{
+
+			Melter: {
 				DisplayName: Melter
 				Tooltip: Used for melting down stuff back into bars and ores
 			}
-			MeteoritePotion:
-			{
+
+			MeteoritePotion: {
 				DisplayName: Meteorite Potion
 				Tooltip: So that's what happened to the dinosaurs...
 			}
-			MysteriousSeed:
-			{
+
+			MysteriousSeed: {
 				DisplayName: Mysterious Seed
 				Tooltip: The beginning of the Plant Era
 			}
-			PumpkingsCrown:
-			{
+
+			PumpkingsCrown: {
 				DisplayName: Robed Pumpkin
 				Tooltip:
 					'''
@@ -129,13 +123,13 @@ Mods:
 					And maybe a pumpkin as well
 					'''
 			}
-			ResurrectionPotion:
-			{
+
+			ResurrectionPotion: {
 				DisplayName: Resurrection Potion
 				Tooltip: Teleports you to your last death point.
 			}
-			Snowflake:
-			{
+
+			Snowflake: {
 				DisplayName: Frostflake
 				Tooltip:
 					'''
@@ -143,150 +137,149 @@ Mods:
 					This isn't a snowflake, because it has the wrong number of sides...
 					'''
 			}
-			SuperTimeSphere:
-			{
+
+			SuperTimeSphere: {
 				DisplayName: Super Time Sphere
 				Tooltip: Moves time forward by twenty Terrarian hours
 			}
-			TimeSphere:
-			{
+
+			TimeSphere: {
 				DisplayName: Time Sphere
 				Tooltip: Moves time forward by six Terrarian hours
 			}
-			TitaniumMelter:
-			{
+
+			TitaniumMelter: {
 				DisplayName: Titanium Melter
 				Tooltip: Used for melting down stuff back into bars and ores
 			}
-			ToyTank:
-			{
+
+			ToyTank: {
 				DisplayName: Toy Tank
 				Tooltip: Wait, but it's only Wave 1...
 			}
-			
-			BetsyBossToken:
-			{
+
+			BetsyBossToken: {
 				DisplayName: Betsy Loot Swapping Token
 				Tooltip: Lets you swap miniboss loot
 			}
-			BrainOfCthulhuBossToken:
-			{
+
+			BrainOfCthulhuBossToken: {
 				DisplayName: Brain of Cthulhu Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			DarkMageBossToken:
-			{
+
+			DarkMageBossToken: {
 				DisplayName: Dark Mage Loot Swapping Token
 				Tooltip: Lets you swap miniboss loot
 			}
-			DeerclopsBossToken:
-			{
+
+			DeerclopsBossToken: {
 				DisplayName: Deerclops Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			DestroyerBossToken:
-			{
+
+			DestroyerBossToken: {
 				DisplayName: Destroyer Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			DukeFishronBossToken:
-			{
+
+			DukeFishronBossToken: {
 				DisplayName: Duke Fishron Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			EaterOfWorldsBossToken:
-			{
+
+			EaterOfWorldsBossToken: {
 				DisplayName: Eater of Worlds Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			EmpressOfLightBossToken:
-			{
+
+			EmpressOfLightBossToken: {
 				DisplayName: Empress of Light Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			EyeOfCthulhuBossToken:
-			{
+
+			EyeOfCthulhuBossToken: {
 				DisplayName: Eye of Cthulhu Boss Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			GolemBossToken:
-			{
+
+			GolemBossToken: {
 				DisplayName: Golem Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			KingSlimeBossToken:
-			{
+
+			KingSlimeBossToken: {
 				DisplayName: King Slime Boss Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			LunaticCultistBossToken:
-			{
+
+			LunaticCultistBossToken: {
 				DisplayName: Lunatic Cultist Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			MoonLordBossToken:
-			{
+
+			MoonLordBossToken: {
 				DisplayName: Moon Lord Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			MourningWoodBossToken:
-			{
+
+			MourningWoodBossToken: {
 				DisplayName: Mourning Wood Loot Swapping Token
 				Tooltip: Lets you swap miniboss loot
 			}
-			OgreBossToken:
-			{
+
+			OgreBossToken: {
 				DisplayName: Ogre Loot Swapping Token
 				Tooltip: Lets you swap miniboss loot
 			}
-			PirateInvasionToken:
-			{
+
+			PirateInvasionToken: {
 				DisplayName: Pirate Invasion Loot Swapping Token
 				Tooltip: Lets you swap invasion loot
 			}
-			PlanteraBossToken:
-			{
+
+			PlanteraBossToken: {
 				DisplayName: Plantera Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			PumpkingBossToken:
-			{
+
+			PumpkingBossToken: {
 				DisplayName: Pumpking Loot Swapping Token
 				Tooltip: Lets you swap miniboss loot
 			}
-			QueenBeeBossToken:
-			{
+
+			QueenBeeBossToken: {
 				DisplayName: Queen Bee Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			QueenSlimeBossToken:
-			{
+
+			QueenSlimeBossToken: {
 				DisplayName: Queen Slime Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			SkeletronBossToken:
-			{
+
+			SkeletronBossToken: {
 				DisplayName: Skeletron Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			SkeletronPrimeBossToken:
-			{
+
+			SkeletronPrimeBossToken: {
 				DisplayName: Skeletron Prime Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			TwinsBossToken:
-			{
+
+			TwinsBossToken: {
 				DisplayName: Twins Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
-			WallOfFleshBossToken:
-			{
+
+			WallOfFleshBossToken: {
 				DisplayName: Wall of Flesh Loot Swapping Token
 				Tooltip: Lets you swap boss loot
 			}
 		}
-		Tiles:
-		{
+
+		Tiles: {
 			Melter.MapEntry: Melter
 			Hellmelter.MapEntry: Hellmelter
 			AdamantiteMelter.MapEntry: Adamantite Melter
