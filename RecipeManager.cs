@@ -1,5 +1,6 @@
 ﻿using System;
 using imkSushisMod.Items;
+using imkSushisMod.Items.NPCSummoningPotions;
 using Terraria.ID;
 using static imkSushisMod.imkSushiRecipeGroups;
 using static Terraria.ID.ItemID;

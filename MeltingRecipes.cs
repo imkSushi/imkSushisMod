@@ -1,5 +1,6 @@
 ﻿using System;
 using imkSushisMod.Items;
+using imkSushisMod.Items.TileItems;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ID.ItemID;
@@ -15,14 +16,14 @@ public class MeltingRecipes
     public static void AddMelterCraftingRecipes(RecipeCreator recipe)
     {
         recipe.StartNewRecipeSection("Melter Crafting Recipes");
-        recipe.New(Furnace, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Items.Melter>());
-        recipe.New(ItemID.Hellforge, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Items.Hellmelter>());
-        recipe.New(ItemID.AdamantiteForge, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Items.AdamantiteMelter>());
-        recipe.New(ItemID.TitaniumForge, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Items.TitaniumMelter>());
+        recipe.New(Furnace, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Melter>());
+        recipe.New(ItemID.Hellforge, (ItemID.ClayBlock, 20), WorkBenches, ItemType<Hellmelter>());
+        recipe.New(ItemID.AdamantiteForge, (ItemID.ClayBlock, 20), WorkBenches, ItemType<AdamantiteMelter>());
+        recipe.New(ItemID.TitaniumForge, (ItemID.ClayBlock, 20), WorkBenches, ItemType<TitaniumMelter>());
         
-        recipe.New(ItemType<Items.Melter>(), (HellstoneBar, 10), Anvils, (short) ItemType<Items.Hellmelter>());
-        recipe.New(ItemType<Items.Hellmelter>(), (AdamantiteOre, 30), TileID.MythrilAnvil, ItemType<Items.AdamantiteMelter>());
-        recipe.New(ItemType<Items.Hellmelter>(), (TitaniumOre, 30), TileID.MythrilAnvil, ItemType<Items.TitaniumMelter>());
+        recipe.New(ItemType<Melter>(), (HellstoneBar, 10), Anvils, (short) ItemType<Hellmelter>());
+        recipe.New(ItemType<Hellmelter>(), (AdamantiteOre, 30), TileID.MythrilAnvil, ItemType<AdamantiteMelter>());
+        recipe.New(ItemType<Hellmelter>(), (TitaniumOre, 30), TileID.MythrilAnvil, ItemType<TitaniumMelter>());
     }
 
     public static void AddMeltingDownBarsRecipes(RecipeCreator recipe)

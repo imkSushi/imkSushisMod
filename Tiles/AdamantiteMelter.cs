@@ -37,6 +37,6 @@ public class AdamantiteMelter : ModTile
     }
 
     public override void KillMultiTile(int x, int y, int frameX, int frameY) {
-        Item.NewItem(new EntitySource_TileBreak(x, y), x * 16, y * 16, 32, 32, ModContent.ItemType<Items.AdamantiteMelter>());
+        Item.NewItem(new EntitySource_TileBreak(x, y), x * 16, y * 16, 32, 32, ModContent.ItemType<Items.TileItems.AdamantiteMelter>());
     }
 }
