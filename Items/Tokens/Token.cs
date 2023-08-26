@@ -8,7 +8,7 @@ public abstract class Token : ModItem
 {
     protected class TokenRecipeCreator
     {
-        private RecipeCreator _recipe = new();
+        private RecipeCreator _recipe = new(disableDecrafting:true);
         private int _tokenId;
 
         public TokenRecipeCreator(int tokenId)

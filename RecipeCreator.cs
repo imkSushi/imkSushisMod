@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using Terraria;
+using Terraria.ID;
 using Terraria.Map;
 using Terraria.ModLoader;
 
@@ -16,6 +18,12 @@ public partial class RecipeCreator
     private static int _sectionLength = 0;
     private static int _totalLength = 0;
     private static int _sectionStart = 0;
+    private readonly bool disableDecrafting;
+
+    public RecipeCreator(bool disableDecrafting = false)
+    {
+        this.disableDecrafting = disableDecrafting;
+    }
 
     // ReSharper disable once UnusedMember.Global
     public void New((int ingredient, int stack, bool group)[] ingredients,
@@ -24,17 +32,32 @@ public partial class RecipeCreator
         bool format = FORMATRECIPES)
     {
         var recipe = Recipe.Create(result.item, result.stack);
+        if(disableDecrafting)
+        {
+            recipe.DisableDecraft();
+        }
+
         foreach (var (ingredient, stack, group) in ingredients)
         {
             if (group)
                 recipe.AddRecipeGroup(ingredient, stack);
             else
+            {
                 recipe.AddIngredient(ingredient, stack);
+                if(!disableDecrafting && GetIngredientDecraftCondition(ingredient, out var condition))
+                {
+                    recipe.AddDecraftCondition(condition);
+                }
+            }
         }
         
         foreach (var tile in tiles)
         {
             recipe.AddTile(tile);
+            if(!disableDecrafting && GetCraftingStationDecraftCondition(tile, out var condition))
+            {
+                recipe.AddDecraftCondition(condition);
+            }
         }
 
         recipe.Register();
@@ -64,6 +87,63 @@ public partial class RecipeCreator
         
         if (FORMATRECIPES)
             UpdateRecipeNumbers();
+    }
+
+    public static bool GetIngredientDecraftCondition(int ingredient, [MaybeNullWhen(false)]out Condition condition)
+    {
+        condition = ingredient switch
+        {
+            //Drops
+            ItemID.ShadowScale or ItemID.TissueSample =>
+                Condition.DownedEowOrBoc,
+            ItemID.Bone =>
+                Condition.DownedSkeletron,
+            ItemID.CursedFlame or ItemID.Ichor =>
+                Condition.Hardmode,
+            ItemID.PixieDust or ItemID.UnicornHorn =>
+                Condition.Hardmode,
+
+            //Souls and Fragments
+            ItemID.SoulofFlight or ItemID.SoulofLight or ItemID.SoulofNight =>
+                Condition.Hardmode,
+            ItemID.SoulofFright => Condition.DownedSkeletronPrime,
+            ItemID.SoulofMight => Condition.DownedDestroyer,
+            ItemID.SoulofSight => Condition.DownedTwins,
+            ItemID.FragmentVortex or ItemID.FragmentNebula or ItemID.FragmentSolar or ItemID.FragmentStardust =>
+                Condition.DownedCultist,
+
+            //Ores and Bars
+            ItemID.CobaltOre or ItemID.PalladiumOre or ItemID.MythrilOre or ItemID.OrichalcumOre or ItemID.AdamantiteOre or ItemID.TitaniumOre or
+            ItemID.CobaltBar or ItemID.PalladiumBar or ItemID.MythrilBar or ItemID.OrichalcumBar or ItemID.AdamantiteBar or ItemID.TitaniumBar =>
+                Condition.Hardmode,
+            ItemID.HallowedBar =>
+                Condition.DownedMechBossAny,
+            ItemID.ChlorophyteOre or ItemID.ChlorophyteBar =>
+                Condition.DownedMechBossAll,
+            ItemID.ShroomiteBar =>
+                Condition.DownedPlantera,
+            ItemID.Ectoplasm or ItemID.SpectreBar => 
+                Condition.DownedPlantera,
+            ItemID.LunarOre or ItemID.LunarBar =>
+                Condition.DownedMoonLord,
+            _ => null
+        };
+        return condition != null;
+    }
+
+    public static bool GetCraftingStationDecraftCondition(int craftingStation, [MaybeNullWhen(false)]out Condition condition)
+    {
+        condition = craftingStation switch
+        {
+            TileID.TinkerersWorkbench => Condition.DownedGoblinArmy,
+            TileID.CrystalBall => Condition.Hardmode,
+            TileID.MythrilAnvil => Condition.Hardmode,
+            TileID.AdamantiteForge => Condition.Hardmode,
+            TileID.Autohammer => Condition.DownedPlantera,
+            TileID.LunarCraftingStation => Condition.DownedCultist,
+            _ => null
+        };
+        return condition != null;
     }
     
     public string GetItemName(int id)

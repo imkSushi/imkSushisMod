@@ -16,11 +16,13 @@ namespace imkSushisMod
         public static void AddRecipes()
         {
             var recipe = new RecipeCreator();
+            var recipeWithoutDecrafting = new RecipeCreator(disableDecrafting:true);
+
             AddExchangeRecipes(recipe);
             AddTaxedExchangeRecipes(recipe);
             AddMissingRecipes(recipe);
             AddDemonAltarRecipes(recipe);
-            AddMeltingDownRecipes(recipe);
+            AddMeltingDownRecipes(recipeWithoutDecrafting);
             AddDungeonChestRecipes(recipe);
             AddWoodenChestRecipes(recipe);
             AddOtherPotionRecipes(recipe);
@@ -38,7 +40,7 @@ namespace imkSushisMod
             AddMushroomChestRecipes(recipe);
             AddMinecartRecipes(recipe);
             AddTrapsRecipes(recipe);
-            AddUntrapChestRecipes(recipe);
+            AddUntrapChestRecipes(recipeWithoutDecrafting);
             AddCrateDowngradingRecipes(recipe);
         }
 
