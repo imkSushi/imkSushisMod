@@ -1,8 +1,5 @@
-﻿using System;
-using imkSushisMod.Items;
-using imkSushisMod.Items.TileItems;
+﻿using imkSushisMod.Items.TileItems;
 using Terraria.ID;
-using Terraria.ModLoader;
 using static Terraria.ID.ItemID;
 using static Terraria.ID.TileID;
 using static Terraria.ModLoader.ModContent;

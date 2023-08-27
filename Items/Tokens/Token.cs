@@ -1,5 +1,4 @@
-﻿using System;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace imkSushisMod.Items.Tokens;
@@ -8,7 +7,7 @@ public abstract class Token : ModItem
 {
     protected class TokenRecipeCreator
     {
-        private RecipeCreator _recipe = new(disableDecrafting:true);
+        private RecipeCreator _recipe = new(true);
         private int _tokenId;
 
         public TokenRecipeCreator(int tokenId)

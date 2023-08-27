@@ -1,5 +1,4 @@
-﻿using System;
-using imkSushisMod.Items;
+﻿using imkSushisMod.Items;
 using imkSushisMod.Items.NPCSummoningPotions;
 using Terraria.ID;
 using static imkSushisMod.imkSushiRecipeGroups;
@@ -16,7 +15,7 @@ namespace imkSushisMod
         public static void AddRecipes()
         {
             var recipe = new RecipeCreator();
-            var recipeWithoutDecrafting = new RecipeCreator(disableDecrafting:true);
+            var recipeWithoutDecrafting = new RecipeCreator(true);
 
             AddExchangeRecipes(recipe);
             AddTaxedExchangeRecipes(recipe);

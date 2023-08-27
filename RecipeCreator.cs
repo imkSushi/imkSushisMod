@@ -5,7 +5,6 @@ using System.Linq;
 using Terraria;
 using Terraria.ID;
 using Terraria.Map;
-using Terraria.ModLoader;
 
 namespace imkSushisMod;
 
@@ -18,11 +17,11 @@ public partial class RecipeCreator
     private static int _sectionLength = 0;
     private static int _totalLength = 0;
     private static int _sectionStart = 0;
-    private readonly bool disableDecrafting;
+    private readonly bool _disableDecrafting;
 
     public RecipeCreator(bool disableDecrafting = false)
     {
-        this.disableDecrafting = disableDecrafting;
+        _disableDecrafting = disableDecrafting;
     }
 
     // ReSharper disable once UnusedMember.Global
@@ -32,7 +31,7 @@ public partial class RecipeCreator
         bool format = FORMATRECIPES)
     {
         var recipe = Recipe.Create(result.item, result.stack);
-        if(disableDecrafting)
+        if(_disableDecrafting)
         {
             recipe.DisableDecraft();
         }
@@ -44,7 +43,7 @@ public partial class RecipeCreator
             else
             {
                 recipe.AddIngredient(ingredient, stack);
-                if(!disableDecrafting && GetIngredientDecraftCondition(ingredient, out var condition))
+                if(!_disableDecrafting && GetIngredientDecraftCondition(ingredient, out var condition))
                 {
                     recipe.AddDecraftCondition(condition);
                 }
@@ -54,7 +53,7 @@ public partial class RecipeCreator
         foreach (var tile in tiles)
         {
             recipe.AddTile(tile);
-            if(!disableDecrafting && GetCraftingStationDecraftCondition(tile, out var condition))
+            if(!_disableDecrafting && GetCraftingStationDecraftCondition(tile, out var condition))
             {
                 recipe.AddDecraftCondition(condition);
             }
