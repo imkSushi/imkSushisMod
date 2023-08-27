@@ -35,8 +35,4 @@ public class Hellmelter : ModTile
         g = 0.45f;
         b = 0.25f;
     }
-
-    public override void KillMultiTile(int x, int y, int frameX, int frameY) {
-        Item.NewItem(new EntitySource_TileBreak(x, y), x * 16, y * 16, 32, 32, ModContent.ItemType<Items.TileItems.Hellmelter>());
-    }
 }
